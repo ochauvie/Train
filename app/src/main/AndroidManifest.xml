@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.och.train">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="AA_DB_NAME"
+            android:value="Train" />
+        <meta-data
+            android:name="AA_DB_VERSION"
+            android:value="1" />
+
+        <activity
+            android:name=".activity.MaterielsActivity"
+            android:label="@string/title_activity_materiels"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.MaterielActivity"
+            android:label="@string/title_activity_materiel"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.RamesActivity"
+            android:label="@string/title_activity_rames"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.RameActivity"
+            android:label="@string/title_activity_rame"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+    </application>
+
+</manifest>

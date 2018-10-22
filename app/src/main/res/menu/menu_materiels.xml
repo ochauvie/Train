@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.och.train.activity.MaterielsActivity">
+
+    <item android:id="@+id/action_add_materiel"
+        android:title="@string/action_add"
+        app:icon="@drawable/smalladd"
+        app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/action_close_materiels"
+        android:title="@string/action_fermer"
+        app:icon="@drawable/smallexit"
+        app:showAsAction="always" />
+
+
+
+</menu>
