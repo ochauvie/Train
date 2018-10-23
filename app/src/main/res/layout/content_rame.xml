@@ -16,7 +16,7 @@
         android:layout_marginStart="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView12"
         app:layout_constraintTop_toTopOf="@+id/textView12" />
@@ -38,12 +38,17 @@
         android:layout_height="0dp"
         android:layout_marginStart="2dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="2dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginBottom="2dp"
+        android:fadeScrollbars="false"
+        android:scrollbarSize="50dp"
+        android:scrollbarAlwaysDrawHorizontalTrack="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        app:layout_constraintVertical_bias="0.511" />
 
     <TextView
         android:id="@+id/textView13"
@@ -51,22 +56,22 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="122dp"
-        android:textStyle="bold"
+        android:layout_marginEnd="8dp"
         android:text="Matériels"
-        app:layout_constraintEnd_toStartOf="@+id/textView14"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edDescription" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/tvComposition"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:textStyle="bold"
         android:text="Composition"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView13"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="@+id/textView13" />
 
     <android.support.constraint.Guideline
@@ -74,7 +79,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="192dp" />
+        app:layout_constraintGuide_begin="168dp" />
 
     <ListView
         android:id="@+id/listComposition"
@@ -82,11 +87,15 @@
         android:layout_height="0dp"
         android:layout_marginStart="2dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="2dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginBottom="2dp"
+        android:fadeScrollbars="false"
+        android:scrollbarSize="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintTop_toBottomOf="@+id/tvComposition"
+        app:layout_constraintVertical_bias="0.011" />
 
 </android.support.constraint.ConstraintLayout>

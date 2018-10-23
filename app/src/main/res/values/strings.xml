@@ -12,7 +12,7 @@
     <string name="echelle_N">N</string>
     <string name="echelle_HO">HO</string>
 
-    <string name="categorie_loco">Locomotive</string>
+    <string name="categorie_loco">Motrice</string>
     <string name="categorie_marchandise">Marchandise</string>
     <string name="categorie_voiture">Voiture</string>
 
@@ -29,14 +29,18 @@
     <string name="title_activity_materiel">MaterielActivity</string>
 
     <string name="mandatory_description">La description est obligatoire.</string>
-    <string name="mandatory_loco">Il faut au poins une locomotiive dans une rame.</string>
+    <string name="mandatory_loco">Il faut au moins une motrice dans une rame.</string>
 
     <string name="materiel_save">Le matériel est sauvegardé.</string>
     <string name="materiel_delete">Le matériel est supprimé.</string>
     <string name="materiel_used_in_rame">Le matériel est utilisé dans une rame. Sa suppression est impossible.</string>
+    <string name="destination_used_in_rame">La destination est utilisée dans une rame. Sa suppression est impossible.</string>
+
 
     <string name="rame_save">La rame est sauvegardée.</string>
     <string name="rame_delete">La rame est supprimée.</string>
+    <string name="rame_composition">Composition</string>
+
 
     <string name="action_save">Sauvegarder</string>
     <string name="action_add">Ajouter</string>
@@ -45,7 +49,10 @@
 
     <string name="oui">Oui</string>
     <string name="non">Non</string>
-    <string name="title_activity_rames">RamesActivity</string>
-    <string name="title_activity_rame">RameActivity</string>
+    <string name="title_activity_rames">Rames</string>
+    <string name="title_activity_rame">Rame</string>
+
+    <string name="title_activity_destinations">Destinations</string>
+    <string name="title_activity_destination">Destination</string>
 
 </resources>

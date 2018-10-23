@@ -22,6 +22,11 @@ public class RameService {
                 .execute();
     }
 
+    public static void deleteAllCompositionRame() {
+        new Delete().from(CompositionRame.class)
+                .execute();
+    }
+
     public static boolean isUsedInRame(Materiel materiel) {
         List<Materiel> list = new Select()
                 .from(CompositionRame.class)

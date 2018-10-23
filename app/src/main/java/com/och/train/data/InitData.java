@@ -15,14 +15,26 @@ import com.och.train.service.RameService;
 
 public class InitData {
 
+    public static void deleteAll() {
+        ActiveAndroid.beginTransaction();
+        try {
+            DestinationService.deleteAllDestinationMaterielRame();
+            DestinationService.deleteAllDestination();
+            RameService.deleteAllCompositionRame();
+            RameService.deleteAllRames();
+            MaterielService.deleteAll();
+            ActiveAndroid.setTransactionSuccessful();
+        } finally {
+            ActiveAndroid.endTransaction();
+        }
+    }
+
     public static void initMateriels() {
 
         ActiveAndroid.beginTransaction();
         try {
 
-            MaterielService.deleteAll();
-
-            Materiel materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
+           Materiel materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
                     Categorie.LOCO, Propulsion.VAPEUR, "Loco vapeur");
             materiel.setCompanie("Chemin de fer du Sud");
             materiel.setReference("V001");
@@ -122,8 +134,6 @@ public class InitData {
         ActiveAndroid.beginTransaction();
         try {
 
-            RameService.deleteAllRames();
-
             Rame rame = new Rame("Rame de test 1");
             rame.save();
 
@@ -142,7 +152,6 @@ public class InitData {
         ActiveAndroid.beginTransaction();
         try {
 
-            DestinationService.deleteAll();
 
             Destination destination = new Destination("Gare 1");
             destination.save();

@@ -18,12 +18,17 @@ public class DestinationService {
                 .execute();
     }
 
-    public static void deleteAll() {
+    public static void deleteAllDestination() {
         new Delete().from(Destination.class)
                 .execute();
     }
 
-    public static List<Destination> getByRameMateriel(Rame rame, Materiel materiel) {
+    public static void deleteAllDestinationMaterielRame() {
+        new Delete().from(DestinationMaterielRame.class)
+                .execute();
+    }
+
+    public static List<DestinationMaterielRame> getByRameMateriel(Rame rame, Materiel materiel) {
         return new Select()
                 .from(DestinationMaterielRame.class)
                 .where("rame = ?", rame.getId())
@@ -31,5 +36,22 @@ public class DestinationService {
                 .execute();
     }
 
+    public static void deleteDestinationByRameMateriel(Rame rame, Materiel materiel) {
+        new Delete().from(DestinationMaterielRame.class)
+                .where("rame = ?", rame.getId())
+                .where("materiel = ?", materiel.getId())
+                .execute();
+    }
+
+    public static boolean isUsedInRame(Destination destination) {
+        List<Materiel> list = new Select()
+                .from(DestinationMaterielRame.class)
+                .where("Destination = ?", destination.getId())
+                .execute();
+        if (list != null && list.size() > 0) {
+            return true;
+        }
+        return false;
+    }
 
 }

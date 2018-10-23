@@ -25,7 +25,7 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="5dp"
-                android:layout_marginBottom="6dp"
+                android:layout_marginBottom="8dp"
                 android:text="Materiels"
                 android:textColor="@android:color/holo_red_dark"
                 android:textSize="20sp"
@@ -40,33 +40,55 @@
                 android:id="@+id/buttonRames"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="6dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:text="Rames"
                 android:textColor="@android:color/holo_red_dark"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/buttonInitData"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/buttonMateriels"
+                app:layout_constraintEnd_toEndOf="@+id/buttonMateriels"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/buttonMateriels"
                 app:layout_constraintTop_toBottomOf="@+id/buttonMateriels" />
+
+            <Button
+                android:id="@+id/buttonDest"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="6dp"
+                android:text="Destinations"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/buttonRames"
+                app:layout_constraintEnd_toEndOf="@+id/buttonRames"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/buttonRames"
+                app:layout_constraintTop_toBottomOf="@+id/buttonRames"
+                app:layout_constraintVertical_bias="0.0" />
 
 
             <Button
                 android:id="@+id/buttonInitData"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="3dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:text="Initialisation BDD"
                 android:textColor="@android:color/holo_red_dark"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/buttonRames" />
+                app:layout_constraintEnd_toEndOf="@+id/buttonDest"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/buttonDest"
+                app:layout_constraintTop_toBottomOf="@+id/buttonDest"
+                app:layout_constraintVertical_bias="0.0" />
+
+
 
         </android.support.constraint.ConstraintLayout>
 

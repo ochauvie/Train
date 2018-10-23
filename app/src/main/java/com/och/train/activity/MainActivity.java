@@ -57,8 +57,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Rames
+        Button but3 = (Button) findViewById(R.id.buttonDest);
+        but3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent myIntent = new Intent(getApplicationContext(), DestinationsActivity.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
+
+
+
     }
     private void onInitDb() {
+        InitData.deleteAll();
         InitData.initMateriels();
         InitData.initRames();
         InitData.initDestinations();

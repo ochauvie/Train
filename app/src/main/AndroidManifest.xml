@@ -39,7 +39,11 @@
         <activity
             android:name=".activity.RameActivity"
             android:label="@string/title_activity_rame"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.DestinationsActivity" android:label="@string/title_activity_destinations"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.DestinationActivity"  android:label="@string/title_activity_destination"
+            android:theme="@style/AppTheme.NoActionBar" ></activity>
     </application>
 
 </manifest>

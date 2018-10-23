@@ -1,41 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content" android:layout_height="wrap_content"
     android:id="@+id/content_materials_header"
-    android:background="@android:color/holo_blue_light">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/colorAccent">
 
 
-    <TextView android:text="Catégorie" android:id="@+id/hcategorie"
+    <TextView
+        android:id="@+id/hcategorie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:textSize="20sp"
-        android:textStyle="bold"
         android:layout_marginLeft="5dp"
-        android:textColor="@android:color/black">
-    </TextView>
+        android:text="Catégorie"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"></TextView>
 
 
-    <TextView android:text="Ep." android:id="@+id/hepoque"
+    <TextView
+        android:id="@+id/hepoque"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:layout_marginLeft="140dp"
+        android:text="Ep."
         android:textColor="@android:color/black"
-        android:layout_marginLeft="140dp">
-    </TextView>
+        android:textSize="20sp"
+        android:textStyle="bold"></TextView>
 
-    <TextView android:text="Description" android:id="@+id/hdesciption"
+    <TextView
+        android:id="@+id/hdesciption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:layout_marginLeft="200dp"
+        android:text="Description"
         android:textColor="@android:color/black"
-        android:layout_marginLeft="200dp">
-    </TextView>
-
+        android:textSize="20sp"
+        android:textStyle="bold"></TextView>
 
 
 </RelativeLayout>

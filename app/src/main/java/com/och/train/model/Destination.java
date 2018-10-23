@@ -9,7 +9,7 @@ public class Destination extends Model {
 
     public static final String ID_DESTINATION = "ID_DESTINATION";
 
-    @Column(name = "Nom", index = true)
+    @Column(name = "Destination", index = true)
     public String destination;
 
 
