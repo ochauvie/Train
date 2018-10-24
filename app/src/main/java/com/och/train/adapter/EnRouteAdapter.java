@@ -2,19 +2,23 @@ package com.och.train.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.support.constraint.ConstraintLayout;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.och.train.R;
 import com.och.train.listener.DestinationEnRouteListener;
 import com.och.train.listener.EnRouteListener;
+import com.och.train.model.Categorie;
 import com.och.train.model.CompositionRame;
 import com.och.train.model.DestinationMaterielRame;
 
@@ -68,9 +72,10 @@ public class EnRouteAdapter extends BaseAdapter implements DestinationEnRouteLis
     public View getView(int position, View convertView, ViewGroup parent) {
         ConstraintLayout layoutItem = (ConstraintLayout) mInflater.inflate(R.layout.item_enroute, parent, false);
         TextView stCategorie = (TextView) layoutItem.findViewById(R.id.stCategorie);
-        TextView stDescription = (TextView)layoutItem.findViewById(R.id.stDescription);
-        CheckBox cbEnRoute =  (CheckBox)layoutItem.findViewById(R.id.cbEnRoute);
-        ListView listDest = (ListView)layoutItem.findViewById(R.id.listCompo);
+        TextView stDescription = (TextView) layoutItem.findViewById(R.id.stDescription);
+        CheckBox cbEnRoute = (CheckBox) layoutItem.findViewById(R.id.cbEnRoute);
+        ListView listDest = (ListView) layoutItem.findViewById(R.id.listCompo);
+        ImageView iVCategorie = (ImageView)layoutItem.findViewById(R.id.iVCategorie);
 
         // Renseignement des valeurs
         CompositionRame compo = compositionRameList.get(position);
@@ -83,8 +88,9 @@ public class EnRouteAdapter extends BaseAdapter implements DestinationEnRouteLis
         if (compo.isMaterielDansRame()) {
             layoutItem.setBackgroundColor(Color.TRANSPARENT);
         } else {
-           layoutItem.setBackgroundColor(Color.LTGRAY);
+            layoutItem.setBackgroundColor(Color.LTGRAY);
         }
+        iVCategorie.setImageDrawable(ContextCompat.getDrawable(mContext, compo.getMateriel().getCategorie().getLogo()));
 
         List currentDest = new ArrayList<DestinationMaterielRame>();
         for (DestinationMaterielRame dest:destRameList) {
