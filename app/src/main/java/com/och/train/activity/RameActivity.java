@@ -222,8 +222,10 @@ public class RameActivity extends AppCompatActivity implements MyDialogInterface
         } else {
             try {
                 ActiveAndroid.beginTransaction();
-                for (CompositionRame compo : rame.materiels()) {
-                    compo.delete();
+                if (rame.getId()!=null) {
+                    for (CompositionRame compo : rame.materiels()) {
+                        compo.delete();
+                    }
                 }
                 rame.setDescription(edDescription.toString());
                 rame.save();
