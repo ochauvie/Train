@@ -1,7 +1,6 @@
 package com.och.train.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.constraint.ConstraintLayout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,16 +8,15 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.och.train.R;
 import com.och.train.listener.MaterielInRameListener;
 import com.och.train.listener.MyTouchListener;
-import com.och.train.model.Categorie;
 import com.och.train.model.Destination;
 import com.och.train.model.DestinationMaterielRame;
 import com.och.train.model.Materiel;
+import com.och.train.tools.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -118,7 +116,7 @@ public class MaterielInRameAdapter  extends BaseAdapter {
                 listDest.setAdapter(destinationAdapter);
 
                 ViewGroup.LayoutParams params = listDest.getLayoutParams();
-                params.height = dpToPx((20 * currentDest.size()) + 10);
+                params.height = Utils.dpToPx(mContext, (20 * currentDest.size()) + 10);
                 listDest.setLayoutParams(params);
 
                 destinationAdapter.notifyDataSetChanged();
@@ -158,11 +156,5 @@ public class MaterielInRameAdapter  extends BaseAdapter {
         }
     }
 
-    public int dpToPx(int dp) {
-        float density = mContext.getResources()
-                .getDisplayMetrics()
-                .density;
-        return Math.round((float) dp * density);
-    }
 
 }

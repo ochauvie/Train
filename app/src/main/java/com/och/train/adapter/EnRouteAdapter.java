@@ -21,6 +21,7 @@ import com.och.train.listener.EnRouteListener;
 import com.och.train.model.Categorie;
 import com.och.train.model.CompositionRame;
 import com.och.train.model.DestinationMaterielRame;
+import com.och.train.tools.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -107,7 +108,7 @@ public class EnRouteAdapter extends BaseAdapter implements DestinationEnRouteLis
             listDest.setAdapter(destinationEnRouteAdapter);
 
             ViewGroup.LayoutParams params = listDest.getLayoutParams();
-            params.height = dpToPx((30 * currentDest.size()) + 10);
+            params.height = Utils.dpToPx(mContext,(30 * currentDest.size()) + 10);
             listDest.setLayoutParams(params);
 
             destinationEnRouteAdapter.notifyDataSetChanged();
@@ -143,10 +144,4 @@ public class EnRouteAdapter extends BaseAdapter implements DestinationEnRouteLis
         }
     }
 
-    public int dpToPx(int dp) {
-        float density = mContext.getResources()
-                .getDisplayMetrics()
-                .density;
-        return Math.round((float) dp * density);
-    }
 }
