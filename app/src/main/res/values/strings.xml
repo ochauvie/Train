@@ -55,5 +55,6 @@
 
     <string name="title_activity_destinations">Destinations</string>
     <string name="title_activity_destination">Destination</string>
+    <string name="title_activity_en_route">En Route</string>
 
 </resources>

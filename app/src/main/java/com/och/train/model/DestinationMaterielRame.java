@@ -18,6 +18,9 @@ public class DestinationMaterielRame extends Model {
     @Column(name = "Destination", index = true)
     public Destination destination;
 
+    @Column(name = "DestinationAtteinte")
+    public boolean destinationAtteinte;
+
 
     public DestinationMaterielRame() {
     }
@@ -38,5 +41,13 @@ public class DestinationMaterielRame extends Model {
 
     public Destination getDestination() {
         return destination;
+    }
+
+    public boolean isDestinationAtteinte() {
+        return destinationAtteinte;
+    }
+
+    public void setDestinationAtteinte(boolean destinationAtteinte) {
+        this.destinationAtteinte = destinationAtteinte;
     }
 }

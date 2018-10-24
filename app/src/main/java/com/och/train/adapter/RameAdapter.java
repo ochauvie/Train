@@ -1,11 +1,12 @@
 package com.och.train.adapter;
 
 import android.content.Context;
+import android.support.constraint.ConstraintLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.RelativeLayout;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.och.train.R;
@@ -41,6 +42,12 @@ public class RameAdapter extends BaseAdapter {
         }
     }
 
+    private void sendListenerToEnRoute(Rame item, int position) {
+        for(int i = listeners.size()-1; i >= 0; i--) {
+            listeners.get(i).onEnRoute(item, position);
+        }
+    }
+
     @Override
     public int getCount() {
         if (rameList!=null) {
@@ -67,17 +74,20 @@ public class RameAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        RelativeLayout layoutItem = (RelativeLayout) mInflater.inflate(R.layout.item_rame, parent, false);
+        ConstraintLayout layoutItem = (ConstraintLayout) mInflater.inflate(R.layout.item_rame, parent, false);
         TextView tv_description = (TextView)layoutItem.findViewById(R.id.description);
         TextView tv_nombre = (TextView)layoutItem.findViewById(R.id.nombre);
+        ImageButton ivSifflet = (ImageButton)layoutItem.findViewById(R.id.ivSifflet);
 
         // Renseignement des valeurs
         Rame current = rameList.get(position);
         tv_description.setText(current.getDescription());
         tv_nombre.setText(String.valueOf( current.materiels()!=null?current.materiels().size():0));
 
+
         // On memorise la position  dans le composant textview
         layoutItem.setTag(position);
+        ivSifflet.setTag(position);
         layoutItem.setOnClickListener(new View.OnClickListener() {
             @Override
                 public void onClick(View v) {
@@ -87,6 +97,14 @@ public class RameAdapter extends BaseAdapter {
                 sendListenerToUpdate(rameList.get(position), position);
                 }
             });
+
+        ivSifflet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Integer position = (Integer) v.getTag();
+                sendListenerToEnRoute(rameList.get(position), position);
+            }
+        });
 
         return layoutItem;
     }

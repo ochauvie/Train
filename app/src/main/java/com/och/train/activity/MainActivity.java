@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Rames
+        // Destinations
         Button but3 = (Button) findViewById(R.id.buttonDest);
         but3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

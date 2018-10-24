@@ -28,6 +28,13 @@ public class DestinationService {
                 .execute();
     }
 
+    public static List<DestinationMaterielRame> getByRame(Rame rame) {
+        return new Select()
+                .from(DestinationMaterielRame.class)
+                .where("rame = ?", rame.getId())
+                .execute();
+    }
+
     public static List<DestinationMaterielRame> getByRameMateriel(Rame rame, Materiel materiel) {
         return new Select()
                 .from(DestinationMaterielRame.class)

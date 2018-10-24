@@ -15,8 +15,11 @@ public class CompositionRame extends Model {
     @Column(name = "Materiel", index = true)
     public Materiel materiel;
 
-      @Column(name = "Position")
+    @Column(name = "Position")
     public int position;
+
+    @Column(name = "MaterielDansRame")
+    public boolean materielDansRame;
 
 
     public CompositionRame() {
@@ -37,5 +40,13 @@ public class CompositionRame extends Model {
 
     public int getPosition() {
         return position;
+    }
+
+    public boolean isMaterielDansRame() {
+        return materielDansRame;
+    }
+
+    public void setMaterielDansRame(boolean materielDansRame) {
+        this.materielDansRame = materielDansRame;
     }
 }

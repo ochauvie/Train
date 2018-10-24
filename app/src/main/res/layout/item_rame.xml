@@ -1,24 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content" android:layout_height="wrap_content"
-    android:id="@+id/item_rame">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_rame"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:layout_editor_absoluteY="81dp">
 
-    <TextView android:text="Description" android:id="@+id/description"
+    <TextView
+        android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_marginStart="10dp"
+        android:text="Description"
         android:textSize="20sp"
-        android:layout_marginLeft="5dp"
-        android:layout_centerVertical="true">
-    </TextView>
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@+id/nombre"
+        app:layout_constraintTop_toTopOf="@+id/nombre"></TextView>
 
-    <TextView android:text="Nb." android:id="@+id/nombre"
+    <TextView
+        android:id="@+id/nombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_marginStart="2dp"
+        android:text="Nb."
         android:textSize="20sp"
-        android:layout_marginLeft="320dp"
-        android:layout_centerVertical="true">
-    </TextView>
+        app:layout_constraintStart_toStartOf="parent"></TextView>
 
-</RelativeLayout>
+    <ImageButton
+        android:id="@+id/ivSifflet"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/description"
+        app:layout_constraintTop_toTopOf="@+id/description"
+        app:srcCompat="@drawable/sifflet" />
+
+</android.support.constraint.ConstraintLayout>

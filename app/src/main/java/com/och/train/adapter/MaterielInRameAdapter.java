@@ -116,7 +116,13 @@ public class MaterielInRameAdapter  extends BaseAdapter {
                 listDest.setDivider(null);
                 DestinationAdapter destinationAdapter = new DestinationAdapter(parent.getContext(), currentDest, materiel, listeners);
                 listDest.setAdapter(destinationAdapter);
+
+                ViewGroup.LayoutParams params = listDest.getLayoutParams();
+                params.height = dpToPx((20 * currentDest.size()) + 10);
+                listDest.setLayoutParams(params);
+
                 destinationAdapter.notifyDataSetChanged();
+
             } else {
                 layoutItem.removeView(listDest);
             }
@@ -150,6 +156,13 @@ public class MaterielInRameAdapter  extends BaseAdapter {
         for(int i = listeners.size()-1; i >= 0; i--) {
             listeners.get(i).onClickAddDest(item, position);
         }
+    }
+
+    public int dpToPx(int dp) {
+        float density = mContext.getResources()
+                .getDisplayMetrics()
+                .density;
+        return Math.round((float) dp * density);
     }
 
 }

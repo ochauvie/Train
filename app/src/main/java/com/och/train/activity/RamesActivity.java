@@ -55,6 +55,14 @@ public class RamesActivity extends AppCompatActivity implements RameListener {
     }
 
     @Override
+    public void onEnRoute(Rame item, int position) {
+        Intent myIntent = new Intent(getApplicationContext(), EnRouteActivity.class);
+        myIntent.putExtra(Rame.ID_RAME, item.getId());
+        startActivityForResult(myIntent, 0);
+        finish();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_rames, menu);
         return true;
