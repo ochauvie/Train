@@ -25,6 +25,11 @@
     <string name="marque_fleischmann">Fleischmann</string>
     <string name="marque_brawa">Brawa</string>
     <string name="marque_autre">Autre</string>
+    <string name="marque_minitrix">Minitrix</string>
+    <string name="marque_peco">Peco</string>
+    <string name="marque_roco">Roco</string>
+    <string name="marque_faller">Faller</string>
+
     <string name="title_activity_materiels">MaterielsActivity</string>
     <string name="title_activity_materiel">MaterielActivity</string>
 

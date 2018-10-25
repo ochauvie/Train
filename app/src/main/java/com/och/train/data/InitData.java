@@ -35,7 +35,7 @@ public class InitData {
         try {
 
            Materiel materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
-                    Categorie.LOCO, Propulsion.VAPEUR, "Loco vapeur");
+                    Categorie.LOCO, Propulsion.VAPEUR, "Petite locomotive vapeur");
             materiel.setCompanie("Chemin de fer du Sud");
             materiel.setReference("V001");
             materiel.setLongueur(5);
@@ -50,77 +50,30 @@ public class InitData {
                     Categorie.MARCHANDISE, Propulsion.AUCUNE, "Tombereau haut");
             materiel.save();
 
-            materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
-                    Categorie.MARCHANDISE, Propulsion.AUCUNE, "Transport bière");
+            materiel = new Materiel(Echelle.N, Epoque.III, Marque.BRAWA,
+                    Categorie.MARCHANDISE, Propulsion.AUCUNE, "Marchandises G10 Palmin");
+            materiel.setReference("67405");
+            materiel.setCompanie("DB");
+            materiel.setLongueur(5);
+            materiel.setQuantite(1);
             materiel.save();
 
             materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
-                    Categorie.MARCHANDISE, Propulsion.AUCUNE, "Transport fermé");
+                    Categorie.MARCHANDISE, Propulsion.AUCUNE, "Réfrigérant Brouwerij Oranjeboom");
+            materiel.setReference("834108");
+            materiel.setCompanie("DB");
+            materiel.setLongueur(5);
+            materiel.setQuantite(1);
             materiel.save();
 
-            materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
-                    Categorie.VOITURE, Propulsion.AUCUNE, "Voiture 1");
-            materiel.save();
-            materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
-                    Categorie.VOITURE, Propulsion.AUCUNE, "Voiture 2");
-            materiel.save();
-            materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
-                    Categorie.VOITURE, Propulsion.AUCUNE, "Voiture 3");
-            materiel.save();
-            materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
-                    Categorie.VOITURE, Propulsion.AUCUNE, "Voiture 4");
-            materiel.save();
-            materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
-                    Categorie.VOITURE, Propulsion.AUCUNE, "Voiture 5");
-            materiel.save();
-            materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
-                    Categorie.VOITURE, Propulsion.AUCUNE, "Voiture 6");
-            materiel.save();
-            materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
-                    Categorie.VOITURE, Propulsion.AUCUNE, "Voiture 7");
-            materiel.save();
-            materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
-                    Categorie.VOITURE, Propulsion.AUCUNE, "Voiture 8");
-            materiel.save();
-            materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
-                    Categorie.VOITURE, Propulsion.AUCUNE, "Voiture 9");
-            materiel.save();
-            materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
-                    Categorie.VOITURE, Propulsion.AUCUNE, "Voiture 10");
+            materiel = new Materiel(Echelle.N, Epoque.III, Marque.BRAWA,
+                    Categorie.MARCHANDISE, Propulsion.AUCUNE, "Citerne J.A.F.");
+            materiel.setReference("67526");
+            materiel.setCompanie("DB");
+            materiel.setLongueur(5);
+            materiel.setQuantite(1);
             materiel.save();
 
-            materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
-                    Categorie.VOITURE, Propulsion.AUCUNE, "Voiture 11");
-            materiel.save();
-            materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
-                    Categorie.VOITURE, Propulsion.AUCUNE, "Voiture 12");
-            materiel.save();
-            materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
-                    Categorie.VOITURE, Propulsion.AUCUNE, "Voiture 13");
-            materiel.save();
-            materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
-                    Categorie.VOITURE, Propulsion.AUCUNE, "Voiture 14");
-            materiel.save();
-            materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
-                    Categorie.VOITURE, Propulsion.AUCUNE, "Voiture 15");
-            materiel.save();
-
-
-            materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
-                    Categorie.VOITURE, Propulsion.AUCUNE, "Voiture 16");
-            materiel.save();
-            materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
-                    Categorie.VOITURE, Propulsion.AUCUNE, "Voiture 17");
-            materiel.save();
-            materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
-                    Categorie.VOITURE, Propulsion.AUCUNE, "Voiture 18");
-            materiel.save();
-            materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
-                    Categorie.VOITURE, Propulsion.AUCUNE, "Voiture 19");
-            materiel.save();
-            materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
-                    Categorie.VOITURE, Propulsion.AUCUNE, "Voiture 20");
-            materiel.save();
             ActiveAndroid.setTransactionSuccessful();
         }
         finally {
@@ -134,11 +87,12 @@ public class InitData {
         ActiveAndroid.beginTransaction();
         try {
 
-            Rame rame = new Rame("Rame de test 1");
+            Rame rame = new Rame("Rame marchandises");
             rame.save();
 
-            rame = new Rame("Rame marchandise tombereau");
+            rame = new Rame("Rame tombereaux");
             rame.save();
+
 
             ActiveAndroid.setTransactionSuccessful();
         }
@@ -153,17 +107,19 @@ public class InitData {
         try {
 
 
-            Destination destination = new Destination("Gare 1");
+            Destination destination = new Destination("Gare");
             destination.save();
-            destination = new Destination("Gare 2");
+            destination = new Destination("Halle marchandises");
             destination.save();
-            destination = new Destination("Halle marchandises 1");
+            destination = new Destination("Usine");
             destination.save();
-            destination = new Destination("Halle marchandises 2");
+            destination = new Destination("Pont tournant");
             destination.save();
-            destination = new Destination("Dépot 1");
+            destination = new Destination("Atelier");
             destination.save();
-            destination = new Destination("Dépot 2");
+            destination = new Destination("Dépot Sud 1");
+            destination.save();
+            destination = new Destination("Dépot Sud 2");
             destination.save();
 
             ActiveAndroid.setTransactionSuccessful();
