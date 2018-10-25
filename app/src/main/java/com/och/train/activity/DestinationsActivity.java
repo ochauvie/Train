@@ -48,8 +48,6 @@ public class DestinationsActivity extends AppCompatActivity implements MyDialogI
         // Creation et initialisation de l'Adapter
         destAdapter = new DestinationAdapter(this, destList, null, null);
         destAdapter.addListener(this);
-
-        //Initialisation de la liste avec les donnees
         listView.setAdapter(destAdapter);
     }
 
@@ -64,7 +62,6 @@ public class DestinationsActivity extends AppCompatActivity implements MyDialogI
     @Override
     public void onDelete(Destination destination, int position) {
         if (destination != null) {
-
             if (DestinationService.isUsedInRame(destination)) {
                 Toast.makeText(getBaseContext(), getString(R.string.destination_used_in_rame), Toast.LENGTH_LONG).show();
             } else{
@@ -102,8 +99,6 @@ public class DestinationsActivity extends AppCompatActivity implements MyDialogI
         return true;
     }
 
-
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -116,9 +111,7 @@ public class DestinationsActivity extends AppCompatActivity implements MyDialogI
             case R.id.action_close_dests:
                 finish();
                 return true;
-
         }
-
         return false;
     }
 
@@ -130,5 +123,4 @@ public class DestinationsActivity extends AppCompatActivity implements MyDialogI
             destAdapter.notifyDataSetChanged();
         }
     }
-
 }

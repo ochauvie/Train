@@ -56,7 +56,6 @@ public class RameAdapter extends BaseAdapter {
         return 0;
     }
 
-
     @Override
     public long getItemId(int position) {
         return position;
@@ -70,10 +69,8 @@ public class RameAdapter extends BaseAdapter {
         return null;
     }
 
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
         ConstraintLayout layoutItem = (ConstraintLayout) mInflater.inflate(R.layout.item_rame, parent, false);
         TextView tv_description = (TextView)layoutItem.findViewById(R.id.description);
         TextView tv_nombre = (TextView)layoutItem.findViewById(R.id.nombre);
@@ -83,7 +80,6 @@ public class RameAdapter extends BaseAdapter {
         Rame current = rameList.get(position);
         tv_description.setText(current.getDescription());
         tv_nombre.setText(String.valueOf( current.materiels()!=null?current.materiels().size():0));
-
 
         // On memorise la position  dans le composant textview
         layoutItem.setTag(position);

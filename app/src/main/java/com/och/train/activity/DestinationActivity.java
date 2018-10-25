@@ -68,9 +68,7 @@ public class DestinationActivity extends AppCompatActivity {
                 startActivity(listActivity);
                 finish();
                 return true;
-
         }
-
         return false;
     }
 

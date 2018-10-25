@@ -50,7 +50,6 @@ public class DestinationAdapter extends BaseAdapter {
         return 0;
     }
 
-
     @Override
     public long getItemId(int position) {
         return position;
@@ -74,7 +73,6 @@ public class DestinationAdapter extends BaseAdapter {
         // Renseignement des valeurs
         Destination current = destList.get(position);
         tv_destination.setText(current.getDestination());
-
 
         // On memorise la position  dans le composant textview
         layoutItem.setTag(position);
@@ -119,7 +117,4 @@ public class DestinationAdapter extends BaseAdapter {
             }
         }
     }
-
-
-
 }

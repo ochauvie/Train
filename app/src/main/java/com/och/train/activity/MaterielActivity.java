@@ -66,7 +66,6 @@ public class MaterielActivity extends AppCompatActivity implements MyDialogInter
         initView();
     }
 
-
     private void initView() {
         Bundle bundle = getIntent().getExtras();
         if (bundle!=null) {
@@ -119,9 +118,7 @@ public class MaterielActivity extends AppCompatActivity implements MyDialogInter
             materiel.save();
             Toast.makeText(getBaseContext(), getString(R.string.materiel_save), Toast.LENGTH_LONG).show();
         }
-
         return true;
-
     }
 
     @Override
@@ -135,13 +132,8 @@ public class MaterielActivity extends AppCompatActivity implements MyDialogInter
         MenuItem itemD = menu.findItem(R.id.action_delete_materiel);
         MenuItem itemS = menu.findItem(R.id.action_add_materiel);
         if (materiel != null) {
-            //if (CoursService.isMontureInCours(monture)) {
-            //    Utils.disableItem(itemD);
-             //   Utils.enableItem(itemS);
-            //} else {
-                Utils.enableItem(itemD);
-                Utils.enableItem(itemS);
-            //}
+            Utils.enableItem(itemD);
+            Utils.enableItem(itemS);
         } else {
             Utils.disableItem(itemD);
             Utils.enableItem(itemS);
@@ -170,10 +162,7 @@ public class MaterielActivity extends AppCompatActivity implements MyDialogInter
             case R.id.action_delete_materiel:
                 onDelete();
                 return false;
-
-
         }
-
         return false;
     }
 
@@ -219,7 +208,6 @@ public class MaterielActivity extends AppCompatActivity implements MyDialogInter
             }
         }
     }
-
 
     private void loadSpinners() {
         ArrayList<IRefData> list = new ArrayList<>();

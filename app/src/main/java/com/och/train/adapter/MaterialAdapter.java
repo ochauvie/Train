@@ -21,7 +21,6 @@ public class MaterialAdapter extends BaseAdapter {
     private LayoutInflater mInflater;
     private List<MaterielListener> listeners = new ArrayList<>();
 
-
     public MaterialAdapter(Context mContext, List<Materiel> materielList) {
         this.materielList = materielList;
         mInflater = LayoutInflater.from(mContext);
@@ -63,10 +62,8 @@ public class MaterialAdapter extends BaseAdapter {
         return null;
     }
 
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
         RelativeLayout layoutItem = (RelativeLayout) mInflater.inflate(R.layout.item_materiel, parent, false);
         TextView tv_categorie = (TextView)layoutItem.findViewById(R.id.categorie);
         TextView tv_epoque = (TextView)layoutItem.findViewById(R.id.epoque);

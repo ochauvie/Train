@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-                // Materiels
+        // Materiels
         Button but1 = (Button) findViewById(R.id.buttonMateriels);
         but1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

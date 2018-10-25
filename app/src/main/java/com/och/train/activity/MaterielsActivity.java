@@ -71,9 +71,7 @@ public class MaterielsActivity extends AppCompatActivity implements MaterielList
             case R.id.action_close_materiels:
                 finish();
                 return true;
-
        }
-
         return false;
     }
 }

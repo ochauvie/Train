@@ -29,7 +29,6 @@ public class RamesActivity extends AppCompatActivity implements RameListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rames);
 
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         actionBar=getSupportActionBar();
@@ -80,7 +79,6 @@ public class RamesActivity extends AppCompatActivity implements RameListener {
             case R.id.action_close_rames:
                 finish();
                 return true;
-
         }
 
         return false;

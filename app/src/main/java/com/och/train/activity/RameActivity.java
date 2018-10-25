@@ -144,7 +144,6 @@ public class RameActivity extends AppCompatActivity implements MyDialogInterface
                 onDelete();
                 return false;
         }
-
         return false;
     }
 

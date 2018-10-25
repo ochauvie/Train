@@ -88,7 +88,6 @@ public class EnRouteActivity extends AppCompatActivity implements EnRouteListene
                 finish();
                 return true;
         }
-
         return false;
     }
 }

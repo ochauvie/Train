@@ -25,7 +25,6 @@ public class DestinationEnRouteAdapter extends BaseAdapter {
     private LayoutInflater mInflater;
     private List<DestinationEnRouteListener> destListeners = new ArrayList<>();
 
-
     public DestinationEnRouteAdapter(Context mContext, List<DestinationMaterielRame> destList) {
         this.destList = destList;
         mInflater = LayoutInflater.from(mContext);
@@ -62,7 +61,6 @@ public class DestinationEnRouteAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
         ConstraintLayout layoutItem = (ConstraintLayout) mInflater.inflate(R.layout.item_destenroute, parent, false);
         TextView tv_destination = (TextView)layoutItem.findViewById(R.id.tvDest);
         CheckBox cbAtteinte = (CheckBox)layoutItem.findViewById(R.id.cbAtteinte);
@@ -70,7 +68,6 @@ public class DestinationEnRouteAdapter extends BaseAdapter {
         // Renseignement des valeurs
         DestinationMaterielRame current = destList.get(position);
         tv_destination.setText(current.getDestination().getDestination());
-
         cbAtteinte.setChecked(current.isDestinationAtteinte());
 
         if (current.isDestinationAtteinte()) {
@@ -94,7 +91,6 @@ public class DestinationEnRouteAdapter extends BaseAdapter {
 
         return layoutItem;
     }
-
 
     private void sendListenerDestAtteinte(DestinationMaterielRame item, boolean isChecked) {
         if (destListeners != null) {
