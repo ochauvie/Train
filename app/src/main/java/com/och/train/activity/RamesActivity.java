@@ -2,7 +2,6 @@ package com.och.train.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -22,7 +21,6 @@ public class RamesActivity extends AppCompatActivity implements RameListener {
     private ListView listView;
     List<Rame> rameList;
     private RameAdapter rameAdapter;
-    private ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +29,6 @@ public class RamesActivity extends AppCompatActivity implements RameListener {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        actionBar=getSupportActionBar();
-        actionBar.setDisplayShowTitleEnabled(false);
 
         rameList = RameService.getAll();
         listView = (ListView)findViewById(android.R.id.list);

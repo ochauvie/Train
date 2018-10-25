@@ -3,7 +3,6 @@ package com.och.train.activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -39,7 +38,6 @@ public class RameActivity extends AppCompatActivity implements MyDialogInterface
     private TextView tvComposition;
     private ListView listViewMateriel, listViewComposition;
     private MyDialogInterface myDialogInterface;
-    private ActionBar actionBar;
 
     private Rame rame = null;
     private Integer longeur = 0;
@@ -57,8 +55,6 @@ public class RameActivity extends AppCompatActivity implements MyDialogInterface
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        actionBar = getSupportActionBar();
-        actionBar.setDisplayShowTitleEnabled(false);
 
         myDialogInterface = new MyDialogInterface();
         myDialogInterface.setListener(this);

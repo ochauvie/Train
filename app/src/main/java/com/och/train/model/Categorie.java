@@ -6,7 +6,7 @@ import com.och.train.R;
 
 public enum Categorie implements IRefData  {
 
-    LOCO(R.string.categorie_loco, Color.RED, R.drawable.loco),
+    LOCO(R.string.categorie_loco, Color.RED, R.drawable.loco_electrique),
     MARCHANDISE(R.string.categorie_marchandise,  Color.BLUE, R.drawable.wagon),
     VOITURE(R.string.categorie_voiture, Color.MAGENTA, R.drawable.voiture);
 

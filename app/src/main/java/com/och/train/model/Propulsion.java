@@ -4,9 +4,9 @@ import com.och.train.R;
 
 public enum Propulsion implements IRefData {
 
-    DIESEL(R.string.propulsion_diesel, 0),
-    VAPEUR(R.string.propulsion_vapeur, 0),
-    ELECTRIQUE(R.string.propulsion_electrique, 0),
+    DIESEL(R.string.propulsion_diesel, R.drawable.loco_diesel),
+    VAPEUR(R.string.propulsion_vapeur, R.drawable.loco_vapeur),
+    ELECTRIQUE(R.string.propulsion_electrique, R.drawable.loco_electrique),
     AUCUNE(R.string.propulsion_aucune, 0);
 
     private final int label;

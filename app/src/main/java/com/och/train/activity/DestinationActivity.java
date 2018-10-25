@@ -1,7 +1,6 @@
 package com.och.train.activity;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -17,7 +16,6 @@ import com.och.train.model.Destination;
 public class DestinationActivity extends AppCompatActivity {
 
     private EditText etDestination;
-    private ActionBar actionBar;
     private Destination destination;
 
     @Override
@@ -26,8 +24,6 @@ public class DestinationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_destination);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        actionBar = getSupportActionBar();
-        actionBar.setDisplayShowTitleEnabled(false);
 
         etDestination = (EditText) findViewById(R.id.edDestination);
 

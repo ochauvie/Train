@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.och.train.R;
 import com.och.train.listener.DestinationEnRouteListener;
 import com.och.train.listener.EnRouteListener;
+import com.och.train.model.Categorie;
 import com.och.train.model.CompositionRame;
 import com.och.train.model.DestinationMaterielRame;
 import com.och.train.tools.Utils;
@@ -89,7 +90,11 @@ public class EnRouteAdapter extends BaseAdapter implements DestinationEnRouteLis
         } else {
             layoutItem.setBackgroundColor(Color.LTGRAY);
         }
-        iVCategorie.setImageDrawable(ContextCompat.getDrawable(mContext, compo.getMateriel().getCategorie().getLogo()));
+        if (Categorie.LOCO.equals(compo.getMateriel().getCategorie())) {
+            iVCategorie.setImageDrawable(ContextCompat.getDrawable(mContext, compo.getMateriel().getPropulsion().getFlag()));
+        } else {
+            iVCategorie.setImageDrawable(ContextCompat.getDrawable(mContext, compo.getMateriel().getCategorie().getLogo()));
+        }
 
         List currentDest = new ArrayList<DestinationMaterielRame>();
         for (DestinationMaterielRame dest:destRameList) {

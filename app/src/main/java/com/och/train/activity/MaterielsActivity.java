@@ -2,7 +2,6 @@ package com.och.train.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -22,7 +21,6 @@ public class MaterielsActivity extends AppCompatActivity implements MaterielList
     private ListView listView;
     List<Materiel> materielList;
     private MaterialAdapter materialAdapter;
-    private ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +29,6 @@ public class MaterielsActivity extends AppCompatActivity implements MaterielList
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        actionBar=getSupportActionBar();
-        actionBar.setDisplayShowTitleEnabled(false);
 
         materielList = MaterielService.getAll();
         listView = (ListView)findViewById(android.R.id.list);

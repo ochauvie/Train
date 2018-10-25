@@ -3,7 +3,6 @@ package com.och.train.activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -36,7 +35,6 @@ public class MaterielActivity extends AppCompatActivity implements MyDialogInter
     private EditText etDescription, etCompagnie, etReference, etLongueur, etQuantite;
     private Materiel materiel = null;
     private MyDialogInterface myDialogInterface;
-    private ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +43,6 @@ public class MaterielActivity extends AppCompatActivity implements MyDialogInter
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        actionBar=getSupportActionBar();
-        actionBar.setDisplayShowTitleEnabled(false);
 
         etDescription = (EditText) findViewById(R.id.etDescription);
         etCompagnie = (EditText) findViewById(R.id.etCompagnie);

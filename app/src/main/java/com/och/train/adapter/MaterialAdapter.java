@@ -1,15 +1,18 @@
 package com.och.train.adapter;
 
 import android.content.Context;
+import android.support.constraint.ConstraintLayout;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.RelativeLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.och.train.R;
 import com.och.train.listener.MaterielListener;
+import com.och.train.model.Categorie;
 import com.och.train.model.Materiel;
 
 import java.util.ArrayList;
@@ -19,9 +22,11 @@ public class MaterialAdapter extends BaseAdapter {
 
     private List<Materiel> materielList;
     private LayoutInflater mInflater;
+    private Context mContext;
     private List<MaterielListener> listeners = new ArrayList<>();
 
     public MaterialAdapter(Context mContext, List<Materiel> materielList) {
+        this.mContext = mContext;
         this.materielList = materielList;
         mInflater = LayoutInflater.from(mContext);
     }
@@ -64,16 +69,18 @@ public class MaterialAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        RelativeLayout layoutItem = (RelativeLayout) mInflater.inflate(R.layout.item_materiel, parent, false);
-        TextView tv_categorie = (TextView)layoutItem.findViewById(R.id.categorie);
+        ConstraintLayout layoutItem = (ConstraintLayout) mInflater.inflate(R.layout.item_materiel, parent, false);
+        ImageView iv_categorie = (ImageView)layoutItem.findViewById(R.id.iVCategorie);
         TextView tv_epoque = (TextView)layoutItem.findViewById(R.id.epoque);
         TextView tv_description = (TextView)layoutItem.findViewById(R.id.description);
 
         // Renseignement des valeurs
         Materiel current = materielList.get(position);
-        tv_categorie.setText(current.getCategorie().getLabel());
-        tv_categorie.setTextColor(current
-                .getCategorie().getFlag());
+        if (Categorie.LOCO.equals(current.getCategorie())) {
+            iv_categorie.setImageDrawable(ContextCompat.getDrawable(mContext, current.getPropulsion().getFlag()));
+        } else {
+            iv_categorie.setImageDrawable(ContextCompat.getDrawable(mContext, current.getCategorie().getLogo()));
+        }
         tv_epoque.setText(current.getEpoque().getLabel());
         tv_description.setText(current.getDescription());
 

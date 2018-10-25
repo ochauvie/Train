@@ -2,7 +2,6 @@ package com.och.train.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,7 +24,6 @@ public class DestinationsActivity extends AppCompatActivity implements MyDialogI
     private ListView listView;
     List<Destination> destList;
     private DestinationAdapter destAdapter;
-    private ActionBar actionBar;
     private MyDialogInterface myDialogInterface;
     private Destination currentDest = null;
 
@@ -36,8 +34,6 @@ public class DestinationsActivity extends AppCompatActivity implements MyDialogI
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        actionBar=getSupportActionBar();
-        actionBar.setDisplayShowTitleEnabled(false);
 
         myDialogInterface = new MyDialogInterface();
         myDialogInterface.setListener(this);

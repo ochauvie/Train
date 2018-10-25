@@ -1,34 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content" android:layout_height="wrap_content"
-    android:id="@+id/item_materiel">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_materiel"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-    <TextView android:text="Categorie" android:id="@+id/categorie"
+
+    <ImageView
+        android:id="@+id/iVCategorie"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/loco_electrique" />
+
+    <TextView
+        android:id="@+id/epoque"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:textSize="20sp"
-        android:layout_marginLeft="5dp"
-        android:layout_centerVertical="true">
-    </TextView>
+        android:layout_marginStart="8dp"
+        android:text="Epoque"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/description"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/iVCategorie"
+        app:layout_constraintTop_toTopOf="@+id/iVCategorie"></TextView>
 
-    <TextView android:text="Epoque" android:id="@+id/epoque"
+    <TextView
+        android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:textSize="20sp"
-        android:layout_marginLeft="140dp"
-        android:layout_centerVertical="true">
-    </TextView>
+        android:layout_marginStart="8dp"
+        android:text="Description"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/epoque"
+        app:layout_constraintTop_toTopOf="@+id/iVCategorie"></TextView>
 
-
-    <TextView android:text="Description" android:id="@+id/description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:textSize="20sp"
-        android:layout_marginLeft="170dp"
-        android:layout_centerVertical="true">
-    </TextView>
-
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
