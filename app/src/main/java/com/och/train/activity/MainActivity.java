@@ -3,6 +3,8 @@ package com.och.train.activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -30,16 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        // Initialisation BDMateriels
-        Button but0 = (Button) findViewById(R.id.buttonInitData);
-        but0.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                onInitDb();
-            }
-        });
-        //but0.setVisibility(View.INVISIBLE);
-
-        // Materiels
+                // Materiels
         Button but1 = (Button) findViewById(R.id.buttonMateriels);
         but1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -65,10 +58,27 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(myIntent, 0);
             }
         });
-
-
-
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_init_bdd:
+                onInitDb();
+                return true;
+            case R.id.action_close_main:
+                finish();
+                return true;
+        }
+        return false;
+    }
+
     private void onInitDb() {
         InitData.deleteAll();
         InitData.initMateriels();

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
@@ -20,15 +19,12 @@
 
             <Button
                 android:id="@+id/buttonMateriels"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
+                android:layout_width="164dp"
+                android:layout_height="164dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="8dp"
-                android:text="Materiels"
-                android:textColor="@android:color/holo_red_dark"
-                android:textSize="20sp"
+                android:background="@drawable/materiels"
+                android:gravity="top|right|center_horizontal"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/buttonRames"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -37,57 +33,81 @@
 
 
             <Button
-                android:id="@+id/buttonRames"
-                android:layout_width="0dp"
+                android:id="@+id/buttonDest"
+                android:layout_width="280dp"
+                android:layout_height="164dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/reseau"
+                android:gravity="top|center_horizontal"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:text="Rames"
-                android:textColor="@android:color/holo_red_dark"
-                android:textSize="20sp"
+
+                android:text="MATERIELS"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/buttonMateriels"
-                app:layout_constraintEnd_toEndOf="@+id/buttonMateriels"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/buttonMateriels"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="12dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="RAMES"
+                app:layout_constraintBottom_toTopOf="@+id/buttonRames"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/buttonMateriels" />
 
             <Button
-                android:id="@+id/buttonDest"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="6dp"
-                android:text="Destinations"
-                android:textColor="@android:color/holo_red_dark"
-                android:textSize="20sp"
+                android:id="@+id/buttonRames"
+                android:layout_width="164dp"
+                android:layout_height="164dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/compo"
+                android:gravity="top|right|center_horizontal"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/buttonRames"
-                app:layout_constraintEnd_toEndOf="@+id/buttonRames"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/buttonRames"
-                app:layout_constraintTop_toBottomOf="@+id/buttonRames"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
-
-            <Button
-                android:id="@+id/buttonInitData"
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:text="Initialisation BDD"
-                android:textColor="@android:color/holo_red_dark"
-                android:textSize="20sp"
+                android:layout_marginEnd="7dp"
+                android:text="DESTINATIONS"
+                android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/buttonDest"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/buttonDest"
-                app:layout_constraintTop_toBottomOf="@+id/buttonDest"
-                app:layout_constraintVertical_bias="0.0" />
-
+                app:layout_constraintBottom_toTopOf="@+id/buttonDest"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonRames" />
 
 
         </android.support.constraint.ConstraintLayout>

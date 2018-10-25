@@ -47,6 +47,7 @@
     <string name="action_add">Ajouter</string>
     <string name="action_delete">Supprimer</string>
     <string name="action_fermer">Fermer</string>
+    <string name="action_bdd">Init BDD</string>
 
     <string name="oui">Oui</string>
     <string name="non">Non</string>
