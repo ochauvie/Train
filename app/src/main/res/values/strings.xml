@@ -24,6 +24,23 @@
     <string name="categorie_marchandise">Marchandise</string>
     <string name="categorie_voiture">Voiture</string>
 
+    <string name="wagon_isotherme">Wagon isotherme</string>
+    <string name="wagon_refirigerant">Wagon réfrigérant</string>
+    <string name="wagon_calorifique">Wagon calorifique</string>
+    <string name="wagon_couvert">Wagon couvert</string>
+    <string name="wagon_plat">Wagon plat</string>
+    <string name="wagon_citerne">Wagon citerne</string>
+    <string name="wagon_silo">Wagon silo - trémies</string>
+    <string name="wagon_tombereau">Wagon tombereau</string>
+    <string name="wagon_porteauto">Wagon porte autos</string>
+    <string name="wagon_bestiaux">Wagon à bestiaux</string>
+    <string name="wagon_intermodal">Wagon intermodal</string>
+    <string name="voiture_restaurant">Voiture restaurant</string>
+    <string name="voiture_lit">Voiture lit</string>
+    <string name="voiture_voiture">Voiture</string>
+
+
+
     <string name="propulsion_diesel">Diesel</string>
     <string name="propulsion_vapeur">Vapeur</string>
     <string name="propulsion_electrique">Electrique</string>

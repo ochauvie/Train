@@ -76,11 +76,8 @@ public class MaterialAdapter extends BaseAdapter {
 
         // Renseignement des valeurs
         Materiel current = materielList.get(position);
-        if (Categorie.LOCO.equals(current.getCategorie())) {
-            iv_categorie.setImageDrawable(ContextCompat.getDrawable(mContext, current.getPropulsion().getFlag()));
-        } else {
-            iv_categorie.setImageDrawable(ContextCompat.getDrawable(mContext, current.getCategorie().getLogo()));
-        }
+        iv_categorie.setImageDrawable(ContextCompat.getDrawable(mContext, current.getPropulsion().getFlag()));
+
         tv_epoque.setText(current.getEpoque().getLabel());
         tv_description.setText(current.getDescription());
 

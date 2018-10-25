@@ -86,15 +86,11 @@ public class EnRouteAdapter extends BaseAdapter implements DestinationEnRouteLis
         cbEnRoute.setChecked(compo.isMaterielDansRame());
 
         if (compo.isMaterielDansRame()) {
-            layoutItem.setBackgroundColor(Color.TRANSPARENT);
+            stDescription.setBackgroundColor(Color.TRANSPARENT);
         } else {
-            layoutItem.setBackgroundColor(Color.LTGRAY);
+            stDescription.setBackgroundColor(Color.LTGRAY);
         }
-        if (Categorie.LOCO.equals(compo.getMateriel().getCategorie())) {
-            iVCategorie.setImageDrawable(ContextCompat.getDrawable(mContext, compo.getMateriel().getPropulsion().getFlag()));
-        } else {
-            iVCategorie.setImageDrawable(ContextCompat.getDrawable(mContext, compo.getMateriel().getCategorie().getLogo()));
-        }
+        iVCategorie.setImageDrawable(ContextCompat.getDrawable(mContext, compo.getMateriel().getPropulsion().getFlag()));
 
         List currentDest = new ArrayList<DestinationMaterielRame>();
         for (DestinationMaterielRame dest:destRameList) {

@@ -43,15 +43,15 @@ public class InitData {
             materiel.save();
 
             materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
-                    Categorie.MARCHANDISE, Propulsion.AUCUNE, "Tombereau bas");
+                    Categorie.MARCHANDISE, Propulsion.TOMBEREAU, "Tombereau bas");
             materiel.save();
 
             materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
-                    Categorie.MARCHANDISE, Propulsion.AUCUNE, "Tombereau haut");
+                    Categorie.MARCHANDISE, Propulsion.TOMBEREAU, "Tombereau haut");
             materiel.save();
 
             materiel = new Materiel(Echelle.N, Epoque.III, Marque.BRAWA,
-                    Categorie.MARCHANDISE, Propulsion.AUCUNE, "Marchandises G10 Palmin");
+                    Categorie.MARCHANDISE, Propulsion.COUVERT, "Marchandises G10 Palmin");
             materiel.setReference("67405");
             materiel.setCompanie("DB");
             materiel.setLongueur(5);
@@ -59,7 +59,7 @@ public class InitData {
             materiel.save();
 
             materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
-                    Categorie.MARCHANDISE, Propulsion.AUCUNE, "Réfrigérant Brouwerij Oranjeboom");
+                    Categorie.MARCHANDISE, Propulsion.REFIRIGERANT, "Réfrigérant Brouwerij Oranjeboom");
             materiel.setReference("834108");
             materiel.setCompanie("DB");
             materiel.setLongueur(5);
@@ -67,7 +67,7 @@ public class InitData {
             materiel.save();
 
             materiel = new Materiel(Echelle.N, Epoque.III, Marque.BRAWA,
-                    Categorie.MARCHANDISE, Propulsion.AUCUNE, "Citerne J.A.F.");
+                    Categorie.MARCHANDISE, Propulsion.CITERNE, "Citerne J.A.F.");
             materiel.setReference("67526");
             materiel.setCompanie("DB");
             materiel.setLongueur(5);
