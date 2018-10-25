@@ -8,6 +8,6 @@ public interface MaterielInRameListener {
 
     void onClickAddDest(Materiel item, int position);
 
-    void onDelete(Materiel matyeriel, Destination item, int position);
+    void onDelete(Materiel materiel, Destination destination, int position);
 
 }
