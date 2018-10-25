@@ -2,7 +2,6 @@ package com.och.train.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
@@ -18,7 +17,6 @@ import android.widget.TextView;
 import com.och.train.R;
 import com.och.train.listener.DestinationEnRouteListener;
 import com.och.train.listener.EnRouteListener;
-import com.och.train.model.Categorie;
 import com.och.train.model.CompositionRame;
 import com.och.train.model.DestinationMaterielRame;
 import com.och.train.tools.Utils;

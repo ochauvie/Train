@@ -1,7 +1,6 @@
 package com.och.train.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.support.constraint.ConstraintLayout;

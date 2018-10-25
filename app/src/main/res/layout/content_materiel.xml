@@ -120,7 +120,8 @@
         android:inputType="textCapWords"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/spMarque"
-        app:layout_constraintTop_toTopOf="@+id/textView6" />
+        app:layout_constraintTop_toTopOf="@+id/textView6"
+        android:importantForAutofill="no" />
 
     <TextView
         android:id="@+id/textView7"
@@ -140,7 +141,8 @@
         android:inputType="textCapWords"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/etDescription"
-        app:layout_constraintTop_toTopOf="@+id/textView7" />
+        app:layout_constraintTop_toTopOf="@+id/textView7"
+        android:importantForAutofill="no" />
 
     <TextView
         android:id="@+id/textView8"
@@ -160,7 +162,8 @@
         android:inputType="textCapWords"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/etCompagnie"
-        app:layout_constraintTop_toTopOf="@+id/textView8" />
+        app:layout_constraintTop_toTopOf="@+id/textView8"
+        android:importantForAutofill="no" />
 
     <TextView
         android:id="@+id/textView9"
@@ -201,6 +204,7 @@
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/etLongueur"
-        app:layout_constraintTop_toTopOf="@+id/textView10" />
+        app:layout_constraintTop_toTopOf="@+id/textView10"
+        android:importantForAutofill="no" />
 
 </android.support.constraint.ConstraintLayout>

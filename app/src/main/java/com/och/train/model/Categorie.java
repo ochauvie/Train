@@ -1,7 +1,6 @@
 package com.och.train.model;
 
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 
 import com.och.train.R;
 

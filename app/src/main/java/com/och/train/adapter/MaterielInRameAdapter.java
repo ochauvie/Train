@@ -20,7 +20,6 @@ import com.och.train.tools.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class MaterielInRameAdapter  extends BaseAdapter {
 

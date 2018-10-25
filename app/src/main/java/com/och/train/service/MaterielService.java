@@ -3,7 +3,6 @@ package com.och.train.service;
 import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
 import com.och.train.model.Categorie;
-import com.och.train.model.Echelle;
 import com.och.train.model.Materiel;
 
 import java.util.List;
