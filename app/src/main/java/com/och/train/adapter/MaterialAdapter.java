@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.och.train.R;
 import com.och.train.listener.MaterielListener;
-import com.och.train.model.Categorie;
 import com.och.train.model.Materiel;
 
 import java.util.ArrayList;

@@ -2,6 +2,7 @@ package com.och.train.adapter;
 
 import android.content.Context;
 import android.support.constraint.ConstraintLayout;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -90,6 +91,7 @@ public class MaterielInRameAdapter  extends BaseAdapter {
         TextView tv_categorie = (TextView) layoutItem.findViewById(R.id.categorie);
         TextView tv_description = (TextView)layoutItem.findViewById(R.id.description);
         ImageView btAdd = (ImageView)layoutItem.findViewById(R.id.btAdd);
+        ImageView iVType = (ImageView)layoutItem.findViewById(R.id.iVType);
         ListView listDest = (ListView)layoutItem.findViewById(R.id.listDest);
 
         // Renseignement des valeurs
@@ -98,6 +100,7 @@ public class MaterielInRameAdapter  extends BaseAdapter {
         tv_categorie.setText(materiel.getCategorie().getLabel());
         tv_categorie.setTextColor(materiel.getCategorie().getFlag());
         tv_description.setText(materiel.getDescription());
+        iVType.setImageDrawable(ContextCompat.getDrawable(mContext, materiel.getPropulsion().getFlag()));
 
             if (withDestination) {
             List currentDest = new ArrayList<Destination>();
