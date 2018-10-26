@@ -30,10 +30,8 @@ public class InitData {
     }
 
     public static void initMateriels() {
-
         ActiveAndroid.beginTransaction();
         try {
-
            Materiel materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
                     Categorie.LOCO, Propulsion.VAPEUR, "Petite locomotive vapeur");
             materiel.setCompanie("Chemin de fer du Sud");
@@ -44,10 +42,12 @@ public class InitData {
 
             materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
                     Categorie.MARCHANDISE, Propulsion.TOMBEREAU, "Tombereau bas");
+            materiel.setLongueur(5);
             materiel.save();
 
             materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
                     Categorie.MARCHANDISE, Propulsion.TOMBEREAU, "Tombereau haut");
+            materiel.setLongueur(5);
             materiel.save();
 
             materiel = new Materiel(Echelle.N, Epoque.III, Marque.BRAWA,
@@ -79,20 +79,16 @@ public class InitData {
         finally {
             ActiveAndroid.endTransaction();
         }
-
     }
 
     public static void initRames() {
-
         ActiveAndroid.beginTransaction();
         try {
-
             Rame rame = new Rame("Rame marchandises");
             rame.save();
 
             rame = new Rame("Rame tombereaux");
             rame.save();
-
 
             ActiveAndroid.setTransactionSuccessful();
         }
@@ -105,8 +101,6 @@ public class InitData {
 
         ActiveAndroid.beginTransaction();
         try {
-
-
             Destination destination = new Destination("Gare", 30);
             destination.save();
             destination = new Destination("Halle marchandises", 20);
@@ -127,7 +121,6 @@ public class InitData {
         finally {
             ActiveAndroid.endTransaction();
         }
-
     }
 
 }

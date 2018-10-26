@@ -102,7 +102,7 @@ public class MaterielInRameAdapter  extends BaseAdapter {
         tv_description.setText(materiel.getDescription());
         iVType.setImageDrawable(ContextCompat.getDrawable(mContext, materiel.getPropulsion().getFlag()));
 
-            if (withDestination) {
+        if (withDestination) {
             List currentDest = new ArrayList<Destination>();
             for (DestinationMaterielRame dest:rameDestsList) {
                 if (dest.getMateriel().equals(materiel))
@@ -135,7 +135,7 @@ public class MaterielInRameAdapter  extends BaseAdapter {
             });
 
         } else {
-            layoutItem.removeView(btAdd);
+            btAdd.setVisibility(View.INVISIBLE);
             layoutItem.removeView(listDest);
         }
 
