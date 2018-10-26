@@ -36,7 +36,6 @@ public class RameActivity extends AppCompatActivity implements MyDialogInterface
 
     private EditText etDescription;
     private TextView tvComposition;
-    private ListView listViewMateriel, listViewComposition;
     private MyDialogInterface myDialogInterface;
 
     private Rame rame = null;
@@ -61,8 +60,8 @@ public class RameActivity extends AppCompatActivity implements MyDialogInterface
 
         etDescription = findViewById(R.id.edDescription);
         tvComposition = findViewById(R.id.tvComposition);
-        listViewMateriel = findViewById(R.id.listMateriel);
-        listViewComposition = findViewById(R.id.listComposition);
+        ListView listViewMateriel = findViewById(R.id.listMateriel);
+        ListView listViewComposition = findViewById(R.id.listComposition);
 
         initView();
 
