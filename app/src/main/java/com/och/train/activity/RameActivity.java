@@ -73,8 +73,8 @@ public class RameActivity extends AppCompatActivity implements MyDialogInterface
         listViewComposition.setAdapter(adapterComposition);
         listViewMateriel.setAdapter(adapterMateriel);
 
-        listViewMateriel.setOnDragListener(new MyDragListener(adapterMateriel, adapterComposition));
-        listViewComposition.setOnDragListener(new MyDragListener(adapterComposition, adapterMateriel));
+        listViewMateriel.setOnDragListener(new MyDragListener(adapterMateriel, adapterComposition, this));
+        listViewComposition.setOnDragListener(new MyDragListener(adapterComposition, adapterMateriel, this));
 
         // Hide keyboard
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
@@ -244,7 +244,7 @@ public class RameActivity extends AppCompatActivity implements MyDialogInterface
     }
 
     @Override
-    public void onDelete(Materiel materiel, Destination destination, int position) {
+    public void onDeleteDest(Materiel materiel, Destination destination, int position) {
         currentMateriel = materiel;
         currentDestination = destination;
         if (rame != null) {
@@ -343,5 +343,14 @@ public class RameActivity extends AppCompatActivity implements MyDialogInterface
         }
     }
 
+    @Override
+    public void onChangeMateriel(Materiel materiel) {
+        // TODO
+        longeur = 0;
+        for (Materiel item:composition) {
+            longeur = longeur + item.getLongueur();
+        }
+        tvComposition.setText(getString(R.string.rame_composition) + " (" + longeur + " cm)");
+    }
 
 }

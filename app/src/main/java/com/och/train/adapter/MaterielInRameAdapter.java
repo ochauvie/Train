@@ -118,7 +118,7 @@ public class MaterielInRameAdapter  extends BaseAdapter {
                 listDest.setAdapter(destinationAdapter);
 
                 ViewGroup.LayoutParams params = listDest.getLayoutParams();
-                params.height = Utils.dpToPx(mContext, (20 * currentDest.size()) + 10);
+                params.height = Utils.dpToPx(mContext, (40 * currentDest.size()) + 10);
                 listDest.setLayoutParams(params);
 
                 destinationAdapter.notifyDataSetChanged();

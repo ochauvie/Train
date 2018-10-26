@@ -41,10 +41,10 @@
 
 
 
-    <string name="propulsion_diesel">Diesel</string>
-    <string name="propulsion_vapeur">Vapeur</string>
-    <string name="propulsion_electrique">Electrique</string>
-    <string name="propulsion_aucune">Aucune</string>
+    <string name="propulsion_diesel">Motrice diesel</string>
+    <string name="propulsion_vapeur">Motrice vapeur</string>
+    <string name="propulsion_electrique">Motrice électrique</string>
+    <string name="propulsion_aucune">Aucun</string>
 
     <string name="marque_fleischmann">Fleischmann</string>
     <string name="marque_brawa">Brawa</string>

@@ -107,19 +107,19 @@ public class InitData {
         try {
 
 
-            Destination destination = new Destination("Gare");
+            Destination destination = new Destination("Gare", 30);
             destination.save();
-            destination = new Destination("Halle marchandises");
+            destination = new Destination("Halle marchandises", 20);
             destination.save();
-            destination = new Destination("Usine");
+            destination = new Destination("Usine", 20);
             destination.save();
-            destination = new Destination("Pont tournant");
+            destination = new Destination("Pont tournant", 10);
             destination.save();
-            destination = new Destination("Atelier");
+            destination = new Destination("Atelier", 20);
             destination.save();
-            destination = new Destination("Dépot Sud 1");
+            destination = new Destination("Dépot Sud 1", 20);
             destination.save();
-            destination = new Destination("Dépot Sud 2");
+            destination = new Destination("Dépot Sud 2", 20);
             destination.save();
 
             ActiveAndroid.setTransactionSuccessful();

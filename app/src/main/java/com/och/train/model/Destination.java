@@ -12,13 +12,17 @@ public class Destination extends Model {
     @Column(name = "Destination", index = true)
     public String destination;
 
+    @Column(name = "Longueur")
+    public int longueur;
+
 
     public Destination() {
         super();
     }
 
-    public Destination(String destination) {
+    public Destination(String destination, int longueur) {
         this.destination = destination;
+        this.longueur = longueur;
     }
 
     public String getDestination() {
@@ -27,5 +31,13 @@ public class Destination extends Model {
 
     public void setDestination(String destination) {
         this.destination = destination;
+    }
+
+    public int getLongueur() {
+        return longueur;
+    }
+
+    public void setLongueur(int longueur) {
+        this.longueur = longueur;
     }
 }

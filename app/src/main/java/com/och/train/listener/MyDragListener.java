@@ -11,11 +11,13 @@ public class MyDragListener implements View.OnDragListener {
 
         private MaterielInRameAdapter adapterDestination;
         private MaterielInRameAdapter adapterOrigine;
+        private MaterielInRameListener listener;
         private float oldY;
 
-    public MyDragListener(MaterielInRameAdapter adapterDestination, MaterielInRameAdapter adapterOrigine) {
+    public MyDragListener(MaterielInRameAdapter adapterDestination, MaterielInRameAdapter adapterOrigine, MaterielInRameListener listener) {
             this.adapterDestination = adapterDestination;
             this.adapterOrigine = adapterOrigine;
+            this.listener = listener;
         }
 
     @Override
@@ -32,9 +34,9 @@ public class MyDragListener implements View.OnDragListener {
                 break;
             case DragEvent.ACTION_DROP:
                 View view = (View) event.getLocalState();
-                MaterielTag tagTank = (MaterielTag) view.getTag();
-                int position = tagTank.getPosition();
-                String origine = tagTank.getOrigine();
+                MaterielTag tag = (MaterielTag) view.getTag();
+                int position = tag.getPosition();
+                String origine = tag.getOrigine();
 
                 // Dag and drop dans des listes différentes
                 if (!adapterDestination.getItemOrigine().equals(origine)) {
@@ -45,6 +47,8 @@ public class MyDragListener implements View.OnDragListener {
 
                     adapterDestination.notifyDataSetChanged();
                     adapterOrigine.notifyDataSetChanged();
+
+                    listener.onChangeMateriel(currentMaterial);
 
                     // Dag and drop dans la même liste: on monte ou on dessend d'une case
                 } else {

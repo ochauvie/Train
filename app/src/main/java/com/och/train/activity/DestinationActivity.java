@@ -15,7 +15,7 @@ import com.och.train.model.Destination;
 
 public class DestinationActivity extends AppCompatActivity {
 
-    private EditText etDestination;
+    private EditText etDestination, etLongeur;
     private Destination destination;
 
     @Override
@@ -26,6 +26,7 @@ public class DestinationActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         etDestination = (EditText) findViewById(R.id.edDestination);
+        etLongeur = (EditText) findViewById(R.id.etLongeur);
 
         initView();
     }
@@ -37,6 +38,7 @@ public class DestinationActivity extends AppCompatActivity {
             destination = Destination.load(Destination.class, destinationId);
             if (destination != null) {
                 etDestination.setText(destination.getDestination());
+                etLongeur.setText(String.valueOf(destination.getLongueur()));
             }
         }
     }
@@ -70,6 +72,7 @@ public class DestinationActivity extends AppCompatActivity {
 
     private boolean onSave() {
         Editable edDestination = etDestination.getText();
+        Editable edLongueur = etLongeur.getText();
         if (edDestination==null || "".equals(edDestination.toString())) {
             Toast.makeText(getBaseContext(), getString(R.string.mandatory_destination), Toast.LENGTH_LONG).show();
             return false;
@@ -78,6 +81,7 @@ public class DestinationActivity extends AppCompatActivity {
                 destination = new Destination();
             }
             destination.setDestination(edDestination.toString());
+            destination.setLongueur(Integer.valueOf(edLongueur.toString()));
             destination.save();
             Toast.makeText(getBaseContext(), getString(R.string.destination_save), Toast.LENGTH_LONG).show();
         }

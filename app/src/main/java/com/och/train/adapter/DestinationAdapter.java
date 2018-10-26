@@ -68,11 +68,13 @@ public class DestinationAdapter extends BaseAdapter {
 
         ConstraintLayout layoutItem = (ConstraintLayout) mInflater.inflate(R.layout.item_destination, parent, false);
         TextView tv_destination = (TextView)layoutItem.findViewById(R.id.tvDestination);
+        TextView tvLongueur = (TextView)layoutItem.findViewById(R.id.tvLongueur);
         ImageButton btDelete = (ImageButton)layoutItem.findViewById(R.id.btDelete);
 
         // Renseignement des valeurs
         Destination current = destList.get(position);
         tv_destination.setText(current.getDestination());
+        tvLongueur.setText(current.getLongueur() + " cm");
 
         // On memorise la position  dans le composant textview
         layoutItem.setTag(position);
@@ -87,7 +89,7 @@ public class DestinationAdapter extends BaseAdapter {
             }
         });
 
-        tv_destination.setOnClickListener(new View.OnClickListener() {
+        layoutItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Integer position = (Integer) v.getTag();
@@ -101,7 +103,7 @@ public class DestinationAdapter extends BaseAdapter {
     private void sendListenerToOnDelete(Destination item, int position) {
         if (listeners!=null) {
             for (int i = listeners.size() - 1; i >= 0; i--) {
-                listeners.get(i).onDelete(materiel, item, position);
+                listeners.get(i).onDeleteDest(materiel, item, position);
             }
         }
         if (destListeners != null) {

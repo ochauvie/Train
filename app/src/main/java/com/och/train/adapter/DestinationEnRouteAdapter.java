@@ -67,7 +67,7 @@ public class DestinationEnRouteAdapter extends BaseAdapter {
 
         // Renseignement des valeurs
         DestinationMaterielRame current = destList.get(position);
-        tv_destination.setText(current.getDestination().getDestination());
+        tv_destination.setText(current.getDestination().getDestination() + " (" + current.getDestination().getLongueur() + " cm)");
         cbAtteinte.setChecked(current.isDestinationAtteinte());
 
         if (current.isDestinationAtteinte()) {
