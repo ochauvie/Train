@@ -69,6 +69,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.action_plan:
+                Intent myIntent = new Intent(getApplicationContext(), PlanActivity.class);
+                startActivityForResult(myIntent, 0);
+                return true;
             case R.id.action_init_bdd:
                 onInitDb();
                 return true;

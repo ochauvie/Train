@@ -8,6 +8,7 @@
     <string name="title_activity_en_route">En Route</string>
     <string name="title_activity_materiels">Materiels</string>
     <string name="title_activity_materiel">Materiel</string>
+    <string name="title_activity_plan">Plan du réseau</string>
 
     <string name="epoque_1">I</string>
     <string name="epoque_2">II</string>
@@ -38,7 +39,6 @@
     <string name="voiture_restaurant">Voiture restaurant</string>
     <string name="voiture_lit">Voiture lit</string>
     <string name="voiture_voiture">Voiture</string>
-
 
 
     <string name="propulsion_diesel">Motrice diesel</string>

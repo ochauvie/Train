@@ -15,6 +15,11 @@ public class Destination extends Model {
     @Column(name = "Longueur")
     public int longueur;
 
+    @Column(name = "X")
+    public int x;
+
+    @Column(name = "Y")
+    public int y;
 
     public Destination() {
         super();
@@ -39,5 +44,21 @@ public class Destination extends Model {
 
     public void setLongueur(int longueur) {
         this.longueur = longueur;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 }
