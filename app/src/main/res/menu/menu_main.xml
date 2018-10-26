@@ -4,12 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.och.train.activity.EnRouteActivity">
 
-    <item android:id="@+id/action_plan"
-        android:title="Plan"
-        app:icon="@drawable/destination"
-        app:showAsAction="ifRoom" />
-
-    <item
+     <item
         android:id="@+id/action_init_bdd"
         android:title="@string/action_bdd"
         app:icon="@android:drawable/ic_menu_upload"

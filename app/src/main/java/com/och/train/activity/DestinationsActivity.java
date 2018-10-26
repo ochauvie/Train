@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.och.train.R;
 import com.och.train.adapter.DestinationAdapter;
 import com.och.train.listener.DestinationListener;
+import com.och.train.listener.PlanListener;
 import com.och.train.model.Destination;
 import com.och.train.service.DestinationService;
 
@@ -103,6 +104,8 @@ public class DestinationsActivity extends AppCompatActivity implements MyDialogI
                 return true;
 
             case R.id.action_close_dests:
+                Intent myI = new Intent(getApplicationContext(), PlanActivity.class);
+                startActivityForResult(myI, 0);
                 finish();
                 return true;
         }

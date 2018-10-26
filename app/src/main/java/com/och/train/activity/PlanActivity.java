@@ -1,5 +1,6 @@
 package com.och.train.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
@@ -100,6 +101,11 @@ public class PlanActivity extends AppCompatActivity implements PlanListener {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_close_plan:
+                finish();
+                return true;
+            case R.id.action_destinations:
+                Intent myIntent = new Intent(getApplicationContext(), DestinationsActivity.class);
+                startActivityForResult(myIntent, 0);
                 finish();
                 return true;
         }

@@ -4,10 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.och.train.activity.EnRouteActivity">
 
+    <item android:id="@+id/action_destinations"
+        android:title="@string/action_destinations"
+        app:icon="@drawable/smallexit"
+        app:showAsAction="ifRoom" />
+
+
     <item android:id="@+id/action_close_plan"
         android:title="@string/action_fermer"
         app:icon="@drawable/smallexit"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
 
 
 </menu>

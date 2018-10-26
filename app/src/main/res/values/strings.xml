@@ -73,6 +73,7 @@
     <string name="action_delete">Supprimer</string>
     <string name="action_fermer">Fermer</string>
     <string name="action_bdd">Init BDD</string>
+    <string name="action_destinations">Destinations</string>
 
     <string name="oui">Oui</string>
     <string name="non">Non</string>
