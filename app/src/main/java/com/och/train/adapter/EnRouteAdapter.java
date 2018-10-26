@@ -17,7 +17,6 @@ import android.widget.TextView;
 import com.och.train.R;
 import com.och.train.listener.DestinationEnRouteListener;
 import com.och.train.listener.EnRouteListener;
-import com.och.train.model.Categorie;
 import com.och.train.model.CompositionRame;
 import com.och.train.model.DestinationMaterielRame;
 import com.och.train.tools.Utils;
@@ -71,11 +70,11 @@ public class EnRouteAdapter extends BaseAdapter implements DestinationEnRouteLis
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ConstraintLayout layoutItem = (ConstraintLayout) mInflater.inflate(R.layout.item_enroute, parent, false);
-        TextView stCategorie = (TextView) layoutItem.findViewById(R.id.stCategorie);
-        TextView stDescription = (TextView) layoutItem.findViewById(R.id.stDescription);
-        CheckBox cbEnRoute = (CheckBox) layoutItem.findViewById(R.id.cbEnRoute);
-        ListView listDest = (ListView) layoutItem.findViewById(R.id.listCompo);
-        ImageView iVCategorie = (ImageView)layoutItem.findViewById(R.id.iVCategorie);
+        TextView stCategorie =  layoutItem.findViewById(R.id.stCategorie);
+        TextView stDescription = layoutItem.findViewById(R.id.stDescription);
+        CheckBox cbEnRoute = layoutItem.findViewById(R.id.cbEnRoute);
+        ListView listDest = layoutItem.findViewById(R.id.listCompo);
+        ImageView iVCategorie = layoutItem.findViewById(R.id.iVCategorie);
 
         // Renseignement des valeurs
         CompositionRame compo = compositionRameList.get(position);
@@ -92,7 +91,7 @@ public class EnRouteAdapter extends BaseAdapter implements DestinationEnRouteLis
         }
         iVCategorie.setImageDrawable(ContextCompat.getDrawable(mContext, compo.getMateriel().getPropulsion().getFlag()));
 
-        List currentDest = new ArrayList<DestinationMaterielRame>();
+        List<DestinationMaterielRame> currentDest = new ArrayList<>();
         for (DestinationMaterielRame dest:destRameList) {
             if (dest.getMateriel().equals(compo.getMateriel())) {
                 currentDest.add(dest);

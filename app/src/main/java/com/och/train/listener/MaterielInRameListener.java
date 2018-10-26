@@ -6,11 +6,11 @@ import com.och.train.model.Materiel;
 
 public interface MaterielInRameListener {
 
-    void onAddDest(Materiel item, int position);
+    void onAddDest(Materiel item);
 
-    void onDeleteDest(Materiel materiel, Destination destination, int position);
+    void onDeleteDest(Materiel materiel, Destination destination);
 
-    void onChangeMateriel(Materiel materiel);
+    void onChangeMateriel();
 
 
 }

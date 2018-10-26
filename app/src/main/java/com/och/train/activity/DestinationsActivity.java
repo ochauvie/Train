@@ -21,7 +21,6 @@ import java.util.List;
 
 public class DestinationsActivity extends AppCompatActivity implements MyDialogInterface.DialogReturn, DestinationListener {
 
-    private ListView listView;
     List<Destination> destList;
     private DestinationAdapter destAdapter;
     private MyDialogInterface myDialogInterface;
@@ -32,14 +31,14 @@ public class DestinationsActivity extends AppCompatActivity implements MyDialogI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_destinations);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         myDialogInterface = new MyDialogInterface();
         myDialogInterface.setListener(this);
 
         destList = DestinationService.getAll();
-        listView = (ListView)findViewById(android.R.id.list);
+        ListView listView = findViewById(android.R.id.list);
 
         // Creation et initialisation de l'Adapter
         destAdapter = new DestinationAdapter(this, destList, null, null);
@@ -48,7 +47,7 @@ public class DestinationsActivity extends AppCompatActivity implements MyDialogI
     }
 
     @Override
-    public void onClick(Destination item, int position) {
+    public void onClick(Destination item) {
         Intent myIntent = new Intent(getApplicationContext(), DestinationActivity.class);
         myIntent.putExtra(Destination.ID_DESTINATION, item.getId());
         startActivityForResult(myIntent, 0);
@@ -56,7 +55,7 @@ public class DestinationsActivity extends AppCompatActivity implements MyDialogI
     }
 
     @Override
-    public void onDelete(Destination destination, int position) {
+    public void onDelete(Destination destination) {
         if (destination != null) {
             if (DestinationService.isUsedInRame(destination)) {
                 Toast.makeText(getBaseContext(), getString(R.string.destination_used_in_rame), Toast.LENGTH_LONG).show();
@@ -66,7 +65,6 @@ public class DestinationsActivity extends AppCompatActivity implements MyDialogI
                 builder.setCancelable(true);
                 builder.setIcon(R.drawable.delete);
                 builder.setTitle(destination.getDestination());
-                builder.setInverseBackgroundForced(true);
                 builder.setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

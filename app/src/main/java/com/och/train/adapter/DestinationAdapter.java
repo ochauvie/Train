@@ -67,9 +67,9 @@ public class DestinationAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         ConstraintLayout layoutItem = (ConstraintLayout) mInflater.inflate(R.layout.item_destination, parent, false);
-        TextView tv_destination = (TextView)layoutItem.findViewById(R.id.tvDestination);
-        TextView tvLongueur = (TextView)layoutItem.findViewById(R.id.tvLongueur);
-        ImageButton btDelete = (ImageButton)layoutItem.findViewById(R.id.btDelete);
+        TextView tv_destination = layoutItem.findViewById(R.id.tvDestination);
+        TextView tvLongueur = layoutItem.findViewById(R.id.tvLongueur);
+        ImageButton btDelete = layoutItem.findViewById(R.id.btDelete);
 
         // Renseignement des valeurs
         Destination current = destList.get(position);
@@ -85,7 +85,7 @@ public class DestinationAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 Integer position = (Integer) v.getTag();
-                sendListenerToOnDelete(destList.get(position), position);
+                sendListenerToOnDelete(destList.get(position));
             }
         });
 
@@ -93,29 +93,29 @@ public class DestinationAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 Integer position = (Integer) v.getTag();
-                sendListenerToUpdate(destList.get(position), position);
+                sendListenerToUpdate(destList.get(position));
             }
         });
 
         return layoutItem;
     }
 
-    private void sendListenerToOnDelete(Destination item, int position) {
+    private void sendListenerToOnDelete(Destination item) {
         if (listeners!=null) {
             for (int i = listeners.size() - 1; i >= 0; i--) {
-                listeners.get(i).onDeleteDest(materiel, item, position);
+                listeners.get(i).onDeleteDest(materiel, item);
             }
         }
         if (destListeners != null) {
             for (int i = destListeners.size() - 1; i >= 0; i--) {
-                destListeners.get(i).onDelete(item, position);
+                destListeners.get(i).onDelete(item);
             }
         }
     }
-    private void sendListenerToUpdate(Destination item, int position) {
+    private void sendListenerToUpdate(Destination item) {
         if (destListeners != null) {
             for (int i = destListeners.size() - 1; i >= 0; i--) {
-                destListeners.get(i).onClick(item, position);
+                destListeners.get(i).onClick(item);
             }
         }
     }

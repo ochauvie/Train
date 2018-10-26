@@ -48,9 +48,9 @@ public class MyDragListener implements View.OnDragListener {
                     adapterDestination.notifyDataSetChanged();
                     adapterOrigine.notifyDataSetChanged();
 
-                    listener.onChangeMateriel(currentMaterial);
+                    listener.onChangeMateriel();
 
-                    // Dag and drop dans la même liste: on monte ou on dessend d'une case
+                    // Dag and drop dans la même liste: on monte ou on descend d'une case
                 } else {
                     Materiel currentMaterial = (Materiel)adapterDestination.getItem(position);
                     // Drag down

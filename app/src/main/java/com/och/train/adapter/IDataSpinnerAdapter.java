@@ -67,7 +67,7 @@ public class IDataSpinnerAdapter extends BaseAdapter {
 
         IRefData item = dataList.get(position);
 
-        TextView main_text = (TextView) mySpinner .findViewById(R.id.text_main_seen);
+        TextView main_text = mySpinner .findViewById(R.id.text_main_seen);
         main_text.setText(item.getLabel());
 
         //if (layoutId == R.layout.custom_spinner) {

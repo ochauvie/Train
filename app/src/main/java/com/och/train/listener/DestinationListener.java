@@ -5,7 +5,7 @@ import com.och.train.model.Destination;
 
 public interface DestinationListener {
 
-    void onClick(Destination item, int position);
-    void onDelete(Destination item, int position);
+    void onClick(Destination item);
+    void onDelete(Destination item);
 
 }

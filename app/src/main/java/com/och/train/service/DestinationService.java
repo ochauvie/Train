@@ -55,10 +55,7 @@ public class DestinationService {
                 .from(DestinationMaterielRame.class)
                 .where("Destination = ?", destination.getId())
                 .execute();
-        if (list != null && list.size() > 0) {
-            return true;
-        }
-        return false;
+        return list != null && list.size() > 0;
     }
 
 }

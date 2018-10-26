@@ -5,7 +5,7 @@ import com.och.train.model.Rame;
 
 public interface RameListener {
 
-    void onClick(Rame item, int position);
-    void onEnRoute(Rame item, int position);
+    void onClick(Rame item);
+    void onEnRoute(Rame item);
 
 }

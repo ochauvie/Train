@@ -18,23 +18,19 @@ import java.util.List;
 
 public class RamesActivity extends AppCompatActivity implements RameListener {
 
-    private ListView listView;
-    List<Rame> rameList;
-    private RameAdapter rameAdapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rames);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        rameList = RameService.getAll();
-        listView = (ListView)findViewById(android.R.id.list);
+        List<Rame> rameList = RameService.getAll();
+        ListView listView = findViewById(android.R.id.list);
 
         // Creation et initialisation de l'Adapter
-        rameAdapter = new RameAdapter(this, rameList);
+        RameAdapter rameAdapter = new RameAdapter(this, rameList);
         rameAdapter.addListener(this);
 
         //Initialisation de la liste avec les donnees
@@ -42,7 +38,7 @@ public class RamesActivity extends AppCompatActivity implements RameListener {
     }
 
     @Override
-    public void onClick(Rame item, int position) {
+    public void onClick(Rame item) {
         Intent myIntent = new Intent(getApplicationContext(), RameActivity.class);
         myIntent.putExtra(Rame.ID_RAME, item.getId());
         startActivityForResult(myIntent, 0);
@@ -50,7 +46,7 @@ public class RamesActivity extends AppCompatActivity implements RameListener {
     }
 
     @Override
-    public void onEnRoute(Rame item, int position) {
+    public void onEnRoute(Rame item) {
         Intent myIntent = new Intent(getApplicationContext(), EnRouteActivity.class);
         myIntent.putExtra(Rame.ID_RAME, item.getId());
         startActivityForResult(myIntent, 0);

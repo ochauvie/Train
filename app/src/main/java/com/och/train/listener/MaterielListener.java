@@ -4,6 +4,6 @@ import com.och.train.model.Materiel;
 
 public interface  MaterielListener {
 
-    void onClick(Materiel item, int position);
+    void onClick(Materiel item);
 
 }

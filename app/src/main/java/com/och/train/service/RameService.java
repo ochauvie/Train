@@ -32,10 +32,7 @@ public class RameService {
                 .from(CompositionRame.class)
                 .where("Materiel = ?", materiel.getId())
                 .execute();
-        if (list!=null && list.size()>0 ){
-            return true;
-        }
-        return false;
+        return list != null && list.size() > 0;
     }
 
 }

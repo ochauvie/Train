@@ -53,16 +53,16 @@ public class RameActivity extends AppCompatActivity implements MyDialogInterface
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rame);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         myDialogInterface = new MyDialogInterface();
         myDialogInterface.setListener(this);
 
-        etDescription = (EditText) findViewById(R.id.edDescription);
-        tvComposition = (TextView) findViewById(R.id.tvComposition);
-        listViewMateriel = (ListView) findViewById(R.id.listMateriel);
-        listViewComposition = (ListView) findViewById(R.id.listComposition);
+        etDescription = findViewById(R.id.edDescription);
+        tvComposition = findViewById(R.id.tvComposition);
+        listViewMateriel = findViewById(R.id.listMateriel);
+        listViewComposition = findViewById(R.id.listComposition);
 
         initView();
 
@@ -176,7 +176,6 @@ public class RameActivity extends AppCompatActivity implements MyDialogInterface
             builder.setCancelable(true);
             builder.setIcon(R.drawable.delete);
             builder.setTitle(rame.getDescription());
-            builder.setInverseBackgroundForced(true);
             builder.setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
@@ -244,7 +243,7 @@ public class RameActivity extends AppCompatActivity implements MyDialogInterface
     }
 
     @Override
-    public void onDeleteDest(Materiel materiel, Destination destination, int position) {
+    public void onDeleteDest(Materiel materiel, Destination destination) {
         currentMateriel = materiel;
         currentDestination = destination;
         if (rame != null) {
@@ -252,7 +251,6 @@ public class RameActivity extends AppCompatActivity implements MyDialogInterface
             builder.setCancelable(true);
             builder.setIcon(R.drawable.delete);
             builder.setTitle("Supprimer la destination " + destination.getDestination() + " ?");
-            builder.setInverseBackgroundForced(true);
             builder.setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
@@ -275,7 +273,7 @@ public class RameActivity extends AppCompatActivity implements MyDialogInterface
     }
 
     @Override
-    public void onAddDest(Materiel materiel, int position) {
+    public void onAddDest(Materiel materiel) {
         currentMateriel = materiel;
         currentDestination = null;
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -303,7 +301,6 @@ public class RameActivity extends AppCompatActivity implements MyDialogInterface
                     }
                 });
 
-        builder.setInverseBackgroundForced(true);
         builder.setPositiveButton(R.string.action_add, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -344,8 +341,7 @@ public class RameActivity extends AppCompatActivity implements MyDialogInterface
     }
 
     @Override
-    public void onChangeMateriel(Materiel materiel) {
-        // TODO
+    public void onChangeMateriel() {
         longeur = 0;
         for (Materiel item:composition) {
             longeur = longeur + item.getLongueur();

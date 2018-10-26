@@ -38,9 +38,9 @@ public class MaterialAdapter extends BaseAdapter {
         listeners.add(aListener);
     }
 
-    private void sendListenerToUpdate(Materiel item, int position) {
+    private void sendListenerToUpdate(Materiel item) {
         for(int i = listeners.size()-1; i >= 0; i--) {
-            listeners.get(i).onClick(item, position);
+            listeners.get(i).onClick(item);
         }
     }
 
@@ -69,9 +69,9 @@ public class MaterialAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ConstraintLayout layoutItem = (ConstraintLayout) mInflater.inflate(R.layout.item_materiel, parent, false);
-        ImageView iv_categorie = (ImageView)layoutItem.findViewById(R.id.iVCategorie);
-        TextView tv_epoque = (TextView)layoutItem.findViewById(R.id.epoque);
-        TextView tv_description = (TextView)layoutItem.findViewById(R.id.description);
+        ImageView iv_categorie = layoutItem.findViewById(R.id.iVCategorie);
+        TextView tv_epoque = layoutItem.findViewById(R.id.epoque);
+        TextView tv_description = layoutItem.findViewById(R.id.description);
 
         // Renseignement des valeurs
         Materiel current = materielList.get(position);
@@ -88,7 +88,7 @@ public class MaterialAdapter extends BaseAdapter {
                 //Lorsque l'on clique sur le nom, on recupere la position de Site"
                 Integer position = (Integer) v.getTag();
                 //On previent les listeners qu'il y a eu un clic sur le tank.
-                sendListenerToUpdate(materielList.get(position), position);
+                sendListenerToUpdate(materielList.get(position));
                 }
             });
 

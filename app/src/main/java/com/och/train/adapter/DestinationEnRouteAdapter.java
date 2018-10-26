@@ -62,8 +62,8 @@ public class DestinationEnRouteAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ConstraintLayout layoutItem = (ConstraintLayout) mInflater.inflate(R.layout.item_destenroute, parent, false);
-        TextView tv_destination = (TextView)layoutItem.findViewById(R.id.tvDest);
-        CheckBox cbAtteinte = (CheckBox)layoutItem.findViewById(R.id.cbAtteinte);
+        TextView tv_destination = layoutItem.findViewById(R.id.tvDest);
+        CheckBox cbAtteinte = layoutItem.findViewById(R.id.cbAtteinte);
 
         // Renseignement des valeurs
         DestinationMaterielRame current = destList.get(position);

@@ -18,23 +18,21 @@ import java.util.List;
 
 public class MaterielsActivity extends AppCompatActivity implements MaterielListener {
 
-    private ListView listView;
     List<Materiel> materielList;
-    private MaterialAdapter materialAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_materiels);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         materielList = MaterielService.getAll();
-        listView = (ListView)findViewById(android.R.id.list);
+        ListView listView = findViewById(android.R.id.list);
 
         // Creation et initialisation de l'Adapter
-        materialAdapter = new MaterialAdapter(this, materielList);
+        MaterialAdapter materialAdapter = new MaterialAdapter(this, materielList);
         materialAdapter.addListener(this);
 
         //Initialisation de la liste avec les donnees
@@ -42,7 +40,7 @@ public class MaterielsActivity extends AppCompatActivity implements MaterielList
     }
 
     @Override
-    public void onClick(Materiel item, int position) {
+    public void onClick(Materiel item) {
         Intent myIntent = new Intent(getApplicationContext(), MaterielActivity.class);
         myIntent.putExtra(Materiel.ID_MATERIEL, item.getId());
         startActivityForResult(myIntent, 0);

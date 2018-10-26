@@ -16,7 +16,7 @@
         android:textSize="20sp"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toEndOf="@+id/nombre"
-        app:layout_constraintTop_toTopOf="@+id/nombre"></TextView>
+        app:layout_constraintTop_toTopOf="@+id/nombre"/>
 
     <TextView
         android:id="@+id/nombre"
@@ -25,7 +25,7 @@
         android:layout_marginStart="2dp"
         android:text="Nb."
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"></TextView>
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <ImageButton
         android:id="@+id/ivSifflet"

@@ -22,33 +22,31 @@ import java.util.List;
 
 public class EnRouteActivity extends AppCompatActivity implements EnRouteListener {
 
-
-    private Rame rame;
     private List<CompositionRame> compoList = new ArrayList<>();
     private List<DestinationMaterielRame> destList = new ArrayList<>();
-    private ListView lvEnRoute;
     private EnRouteAdapter enRouteAdapter;
-    private ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_en_route);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        actionBar=getSupportActionBar();
-        actionBar.setDisplayShowTitleEnabled(true);
+        ActionBar actionBar=getSupportActionBar();
+        if (actionBar !=null) {
+            actionBar.setDisplayShowTitleEnabled(true);
+        }
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             long rameId = bundle.getLong(Rame.ID_RAME);
-            rame = Rame.load(Rame.class, rameId);
+            Rame rame = Rame.load(Rame.class, rameId);
             compoList = rame.materiels();
             destList = DestinationService.getByRame(rame);
             actionBar.setTitle(rame.description);
         }
 
-        lvEnRoute = (ListView)findViewById(R.id.lvEnRoute);
+        ListView lvEnRoute = findViewById(R.id.lvEnRoute);
 
         // Creation et initialisation de l'Adapter
         enRouteAdapter = new EnRouteAdapter(this, compoList, destList);

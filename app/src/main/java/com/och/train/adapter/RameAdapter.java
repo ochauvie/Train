@@ -36,15 +36,15 @@ public class RameAdapter extends BaseAdapter {
         listeners.add(aListener);
     }
 
-    private void sendListenerToUpdate(Rame item, int position) {
+    private void sendListenerToUpdate(Rame item) {
         for(int i = listeners.size()-1; i >= 0; i--) {
-            listeners.get(i).onClick(item, position);
+            listeners.get(i).onClick(item);
         }
     }
 
-    private void sendListenerToEnRoute(Rame item, int position) {
+    private void sendListenerToEnRoute(Rame item) {
         for(int i = listeners.size()-1; i >= 0; i--) {
-            listeners.get(i).onEnRoute(item, position);
+            listeners.get(i).onEnRoute(item);
         }
     }
 
@@ -72,9 +72,9 @@ public class RameAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ConstraintLayout layoutItem = (ConstraintLayout) mInflater.inflate(R.layout.item_rame, parent, false);
-        TextView tv_description = (TextView)layoutItem.findViewById(R.id.description);
-        TextView tv_nombre = (TextView)layoutItem.findViewById(R.id.nombre);
-        ImageButton ivSifflet = (ImageButton)layoutItem.findViewById(R.id.ivSifflet);
+        TextView tv_description = layoutItem.findViewById(R.id.description);
+        TextView tv_nombre = layoutItem.findViewById(R.id.nombre);
+        ImageButton ivSifflet = layoutItem.findViewById(R.id.ivSifflet);
 
         // Renseignement des valeurs
         Rame current = rameList.get(position);
@@ -90,7 +90,7 @@ public class RameAdapter extends BaseAdapter {
                 //Lorsque l'on clique sur le nom, on recupere la position de Site"
                 Integer position = (Integer) v.getTag();
                 //On previent les listeners qu'il y a eu un clic sur le tank.
-                sendListenerToUpdate(rameList.get(position), position);
+                sendListenerToUpdate(rameList.get(position));
                 }
             });
 
@@ -98,7 +98,7 @@ public class RameAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 Integer position = (Integer) v.getTag();
-                sendListenerToEnRoute(rameList.get(position), position);
+                sendListenerToEnRoute(rameList.get(position));
             }
         });
 

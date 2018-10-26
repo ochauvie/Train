@@ -41,20 +41,20 @@ public class MaterielActivity extends AppCompatActivity implements MyDialogInter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_materiel);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        etDescription = (EditText) findViewById(R.id.etDescription);
-        etCompagnie = (EditText) findViewById(R.id.etCompagnie);
-        etReference =( EditText) findViewById(R.id.etReference);
-        etLongueur = (EditText) findViewById(R.id.etLongueur);
-        etQuantite = (EditText) findViewById(R.id.etQuantite);
+        etDescription = findViewById(R.id.etDescription);
+        etCompagnie = findViewById(R.id.etCompagnie);
+        etReference = findViewById(R.id.etReference);
+        etLongueur = findViewById(R.id.etLongueur);
+        etQuantite = findViewById(R.id.etQuantite);
 
-        spCategorie = (Spinner) findViewById(R.id.spCategorie);
-        spEchelle = (Spinner) findViewById(R.id.spEchelle);
-        spEpoque = (Spinner) findViewById(R.id.spEpoque);
-        spPropulsion = (Spinner) findViewById(R.id.spPropulsion);
-        spMarque = (Spinner) findViewById(R.id.spMarque);
+        spCategorie = findViewById(R.id.spCategorie);
+        spEchelle = findViewById(R.id.spEchelle);
+        spEpoque = findViewById(R.id.spEpoque);
+        spPropulsion = findViewById(R.id.spPropulsion);
+        spMarque = findViewById(R.id.spMarque);
         loadSpinners();
 
         myDialogInterface = new MyDialogInterface();
@@ -182,7 +182,6 @@ public class MaterielActivity extends AppCompatActivity implements MyDialogInter
                 builder.setCancelable(true);
                 builder.setIcon(R.drawable.delete);
                 builder.setTitle(materiel.getDescription());
-                builder.setInverseBackgroundForced(true);
                 builder.setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

@@ -88,11 +88,11 @@ public class MaterielInRameAdapter  extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ConstraintLayout layoutItem = (ConstraintLayout) mInflater.inflate(R.layout.item_materiel_in_rame, parent, false);
-        TextView tv_categorie = (TextView) layoutItem.findViewById(R.id.categorie);
-        TextView tv_description = (TextView)layoutItem.findViewById(R.id.description);
-        ImageView btAdd = (ImageView)layoutItem.findViewById(R.id.btAdd);
-        ImageView iVType = (ImageView)layoutItem.findViewById(R.id.iVType);
-        ListView listDest = (ListView)layoutItem.findViewById(R.id.listDest);
+        TextView tv_categorie = layoutItem.findViewById(R.id.categorie);
+        TextView tv_description = layoutItem.findViewById(R.id.description);
+        ImageView btAdd = layoutItem.findViewById(R.id.btAdd);
+        ImageView iVType = layoutItem.findViewById(R.id.iVType);
+        ListView listDest = layoutItem.findViewById(R.id.listDest);
 
         // Renseignement des valeurs
         Materiel materiel = materielList.get(position);
@@ -103,7 +103,7 @@ public class MaterielInRameAdapter  extends BaseAdapter {
         iVType.setImageDrawable(ContextCompat.getDrawable(mContext, materiel.getPropulsion().getFlag()));
 
         if (withDestination) {
-            List currentDest = new ArrayList<Destination>();
+            List<Destination> currentDest = new ArrayList<>();
             for (DestinationMaterielRame dest:rameDestsList) {
                 if (dest.getMateriel().equals(materiel))
                 {
@@ -154,7 +154,7 @@ public class MaterielInRameAdapter  extends BaseAdapter {
 
     private void sendListenerToAddDest(Materiel item, int position) {
         for(int i = listeners.size()-1; i >= 0; i--) {
-            listeners.get(i).onAddDest(item, position);
+            listeners.get(i).onAddDest(item);
         }
     }
 

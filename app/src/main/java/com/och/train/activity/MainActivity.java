@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Materiels
-        Button but1 = (Button) findViewById(R.id.buttonMateriels);
+        Button but1 = findViewById(R.id.buttonMateriels);
         but1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent myIntent = new Intent(getApplicationContext(), MaterielsActivity.class);
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Rames
-        Button but2 = (Button) findViewById(R.id.buttonRames);
+        Button but2 = findViewById(R.id.buttonRames);
         but2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent myIntent = new Intent(getApplicationContext(), RamesActivity.class);
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Destinations
-        Button but3 = (Button) findViewById(R.id.buttonDest);
+        Button but3 = findViewById(R.id.buttonDest);
         but3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent myIntent = new Intent(getApplicationContext(), DestinationsActivity.class);

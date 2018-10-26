@@ -22,11 +22,11 @@ public class DestinationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_destination);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        etDestination = (EditText) findViewById(R.id.edDestination);
-        etLongeur = (EditText) findViewById(R.id.etLongeur);
+        etDestination = findViewById(R.id.edDestination);
+        etLongeur = findViewById(R.id.etLongeur);
 
         initView();
     }
