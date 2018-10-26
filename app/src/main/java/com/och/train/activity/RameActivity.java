@@ -275,7 +275,7 @@ public class RameActivity extends AppCompatActivity implements MyDialogInterface
     }
 
     @Override
-    public void onClickAddDest(Materiel materiel, int position) {
+    public void onAddDest(Materiel materiel, int position) {
         currentMateriel = materiel;
         currentDestination = null;
         AlertDialog.Builder builder = new AlertDialog.Builder(this);

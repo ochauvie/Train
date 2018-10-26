@@ -154,7 +154,7 @@ public class MaterielInRameAdapter  extends BaseAdapter {
 
     private void sendListenerToAddDest(Materiel item, int position) {
         for(int i = listeners.size()-1; i >= 0; i--) {
-            listeners.get(i).onClickAddDest(item, position);
+            listeners.get(i).onAddDest(item, position);
         }
     }
 
