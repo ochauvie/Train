@@ -23,6 +23,7 @@ public class InitData {
             RameService.deleteAllCompositionRame();
             RameService.deleteAllRames();
             MaterielService.deleteAll();
+            DestinationService.deleteAllPlans();
             ActiveAndroid.setTransactionSuccessful();
         } finally {
             ActiveAndroid.endTransaction();

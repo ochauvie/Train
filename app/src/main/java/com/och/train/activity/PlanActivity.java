@@ -1,6 +1,11 @@
 package com.och.train.activity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
@@ -14,19 +19,28 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.och.train.R;
 import com.och.train.listener.MyTouchListener;
 import com.och.train.listener.PlanDragListener;
 import com.och.train.listener.PlanListener;
 import com.och.train.model.Destination;
+import com.och.train.model.Plan;
 import com.och.train.service.DestinationService;
+import com.och.train.tools.PictureUtils;
 import com.och.train.tools.Utils;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
+import java.util.UUID;
 
 public class PlanActivity extends AppCompatActivity implements PlanListener {
 
+    private static final int REQUEST_PLAN_SELECT = 1;
     private ConstraintLayout layout;
 
     @Override
@@ -38,6 +52,11 @@ public class PlanActivity extends AppCompatActivity implements PlanListener {
 
         layout = findViewById(R.id.cvDests);
         layout.setOnDragListener(new PlanDragListener(this));
+
+        Plan plan = DestinationService.getPlan();
+        if (plan != null) {
+            layout.setBackground(new BitmapDrawable(PlanActivity.this.getResources(), PictureUtils.getImage(plan.getReseau())));
+        }
 
         List<Destination> dests = DestinationService.getAll();
         if (dests != null) {
@@ -108,7 +127,40 @@ public class PlanActivity extends AppCompatActivity implements PlanListener {
                 startActivityForResult(myIntent, 0);
                 finish();
                 return true;
+            case R.id.action_pick_reseau:
+                selectPlanPicture();
+                return true;
         }
         return false;
     }
+
+    private void selectPlanPicture() {
+        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+        photoPickerIntent.setType("image/*");
+        startActivityForResult(photoPickerIntent, REQUEST_PLAN_SELECT);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_PLAN_SELECT && resultCode == RESULT_OK) {
+            try {
+                final Uri imageUri = data.getData();
+                final InputStream imageStream = getContentResolver().openInputStream(imageUri);
+                Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                selectedImage = PictureUtils.rotateImageIfRequired(selectedImage, PlanActivity.this, imageUri);
+                Drawable drawable = new BitmapDrawable(PlanActivity.this.getResources(), selectedImage);
+                layout.setBackground(drawable);
+                DestinationService.deleteAllPlans();
+                Plan plan = new Plan(PictureUtils.getBitmapAsByteArray(selectedImage));
+                plan.save();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                Toast.makeText(PlanActivity.this, "Something went wrong", Toast.LENGTH_LONG).show();
+            } catch (IOException e) {
+                e.printStackTrace();
+                Toast.makeText(PlanActivity.this, "Something went wrong", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
 }

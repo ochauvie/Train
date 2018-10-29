@@ -16,6 +16,7 @@ import com.och.train.model.CompositionRame;
 import com.och.train.model.Destination;
 import com.och.train.model.DestinationMaterielRame;
 import com.och.train.model.Materiel;
+import com.och.train.model.Plan;
 import com.och.train.model.Rame;
 
 
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Ouvre la BD
         Configuration.Builder config = new Configuration.Builder(this);
-        config.addModelClasses(Materiel.class, Rame.class, CompositionRame.class, Destination.class, DestinationMaterielRame.class);
+        config.addModelClasses(Materiel.class, Rame.class, CompositionRame.class, Destination.class, DestinationMaterielRame.class, Plan.class);
         ActiveAndroid.initialize(config.create());
 
         setContentView(R.layout.activity_main);

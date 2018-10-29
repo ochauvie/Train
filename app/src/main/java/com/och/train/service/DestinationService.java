@@ -5,6 +5,7 @@ import com.activeandroid.query.Select;
 import com.och.train.model.Destination;
 import com.och.train.model.DestinationMaterielRame;
 import com.och.train.model.Materiel;
+import com.och.train.model.Plan;
 import com.och.train.model.Rame;
 
 import java.util.List;
@@ -57,5 +58,20 @@ public class DestinationService {
                 .execute();
         return list != null && list.size() > 0;
     }
+
+    public static Plan getPlan() {
+        List<Plan> plans =  new Select()
+                .from(Plan.class)
+                .execute();
+        if (plans !=null && plans.size() > 0) {
+            return plans.get(0);
+        }
+        return null;
+    }
+    public static void deleteAllPlans() {
+        new Delete().from(Plan.class)
+                .execute();
+    }
+
 
 }

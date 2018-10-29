@@ -74,6 +74,8 @@
     <string name="action_fermer">Fermer</string>
     <string name="action_bdd">Init BDD</string>
     <string name="action_destinations">Destinations</string>
+    <string name="action_pick_reseau">Choisir une image du réseau</string>
+
 
     <string name="oui">Oui</string>
     <string name="non">Non</string>
