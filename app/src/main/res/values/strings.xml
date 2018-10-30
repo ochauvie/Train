@@ -9,6 +9,8 @@
     <string name="title_activity_materiels">Materiels</string>
     <string name="title_activity_materiel">Materiel</string>
     <string name="title_activity_plan">Plan du réseau</string>
+    <string name="title_activity_image_rame">Rame</string>
+
 
     <string name="epoque_1">I</string>
     <string name="epoque_2">II</string>

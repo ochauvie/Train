@@ -48,6 +48,12 @@ public class RameAdapter extends BaseAdapter {
         }
     }
 
+    private void sendListenerToImage(Rame item) {
+        for(int i = listeners.size()-1; i >= 0; i--) {
+            listeners.get(i).onImage(item);
+        }
+    }
+
     @Override
     public int getCount() {
         if (rameList!=null) {
@@ -75,6 +81,7 @@ public class RameAdapter extends BaseAdapter {
         TextView tv_description = layoutItem.findViewById(R.id.description);
         TextView tv_nombre = layoutItem.findViewById(R.id.nombre);
         ImageButton ivSifflet = layoutItem.findViewById(R.id.ivSifflet);
+        ImageButton ivCompo = layoutItem.findViewById(R.id.ivCompo);
 
         // Renseignement des valeurs
         Rame current = rameList.get(position);
@@ -84,13 +91,13 @@ public class RameAdapter extends BaseAdapter {
         // On memorise la position  dans le composant textview
         layoutItem.setTag(position);
         ivSifflet.setTag(position);
+        ivCompo.setTag(position);
+
         layoutItem.setOnClickListener(new View.OnClickListener() {
             @Override
                 public void onClick(View v) {
-                //Lorsque l'on clique sur le nom, on recupere la position de Site"
                 Integer position = (Integer) v.getTag();
-                //On previent les listeners qu'il y a eu un clic sur le tank.
-                sendListenerToUpdate(rameList.get(position));
+                sendListenerToImage(rameList.get(position));
                 }
             });
 
@@ -99,6 +106,14 @@ public class RameAdapter extends BaseAdapter {
             public void onClick(View v) {
                 Integer position = (Integer) v.getTag();
                 sendListenerToEnRoute(rameList.get(position));
+            }
+        });
+
+        ivCompo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Integer position = (Integer) v.getTag();
+                sendListenerToUpdate(rameList.get(position));
             }
         });
 

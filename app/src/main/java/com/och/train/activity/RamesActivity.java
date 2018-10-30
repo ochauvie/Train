@@ -52,6 +52,12 @@ public class RamesActivity extends AppCompatActivity implements RameListener {
         startActivityForResult(myIntent, 0);
         finish();
     }
+    @Override
+    public void onImage(Rame rame) {
+        Intent myIntent = new Intent(getApplicationContext(), ImageRameActivity.class);
+        myIntent.putExtra(Rame.ID_RAME, rame.getId());
+        startActivity(myIntent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

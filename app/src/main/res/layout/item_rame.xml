@@ -9,14 +9,16 @@
 
     <TextView
         android:id="@+id/description"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
+        android:layout_marginEnd="8dp"
         android:text="Description"
         android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/ivCompo"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toEndOf="@+id/nombre"
-        app:layout_constraintTop_toTopOf="@+id/nombre"/>
+        app:layout_constraintTop_toTopOf="@+id/nombre" />
 
     <TextView
         android:id="@+id/nombre"
@@ -31,12 +33,24 @@
         android:id="@+id/ivSifflet"
         android:layout_width="32dp"
         android:layout_height="32dp"
+        android:layout_marginStart="8dp"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/description"
+        app:layout_constraintStart_toEndOf="@+id/ivCompo"
         app:layout_constraintTop_toTopOf="@+id/description"
         app:srcCompat="@drawable/sifflet" />
+
+    <ImageButton
+        android:id="@+id/ivCompo"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toStartOf="@+id/ivSifflet"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/description"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/compo" />
 
 </android.support.constraint.ConstraintLayout>
