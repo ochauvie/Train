@@ -40,6 +40,9 @@ public class Materiel extends Model {
     @Column(name = "Reference")
     public String reference;
 
+    @Column(name = "Photo")
+    private byte[] photo;
+
     public Materiel() {
         super();
     }
@@ -131,5 +134,13 @@ public class Materiel extends Model {
 
     public void setReference(String reference) {
         this.reference = reference;
+    }
+
+    public byte[] getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(byte[] photo) {
+        this.photo = photo;
     }
 }

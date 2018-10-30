@@ -75,6 +75,7 @@
     <string name="action_bdd">Init BDD</string>
     <string name="action_destinations">Destinations</string>
     <string name="action_pick_reseau">Choisir une image du réseau</string>
+    <string name="action_pick_photo">Image</string>
 
 
     <string name="oui">Oui</string>

@@ -2,6 +2,11 @@ package com.och.train.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +15,7 @@ import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -23,16 +29,22 @@ import com.och.train.model.Marque;
 import com.och.train.model.Materiel;
 import com.och.train.model.Propulsion;
 import com.och.train.service.RameService;
+import com.och.train.tools.PictureUtils;
 import com.och.train.tools.SpinnerTool;
 import com.och.train.tools.Utils;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class MaterielActivity extends AppCompatActivity implements MyDialogInterface.DialogReturn {
 
+    private static final int REQUEST_PHOTO = 1;
     private Spinner spCategorie, spEchelle, spEpoque, spPropulsion, spMarque;
     private EditText etDescription, etCompagnie, etReference, etLongueur, etQuantite;
+    private ImageView idPhoto;
     private Materiel materiel = null;
     private MyDialogInterface myDialogInterface;
 
@@ -57,6 +69,8 @@ public class MaterielActivity extends AppCompatActivity implements MyDialogInter
         spMarque = findViewById(R.id.spMarque);
         loadSpinners();
 
+        idPhoto = findViewById(R.id.idPhoto);
+
         myDialogInterface = new MyDialogInterface();
         myDialogInterface.setListener(this);
         initView();
@@ -78,6 +92,9 @@ public class MaterielActivity extends AppCompatActivity implements MyDialogInter
                 SpinnerTool.SelectSpinnerItemByValue(spEpoque, materiel.getEpoque().name());
                 SpinnerTool.SelectSpinnerItemByValue(spPropulsion, materiel.getPropulsion().name());
                 SpinnerTool.SelectSpinnerItemByValue(spMarque, materiel.getMarque().name());
+                if (materiel.getPhoto() != null) {
+                    idPhoto.setImageBitmap(PictureUtils.getImage(materiel.getPhoto()));
+                }
             }
         }
     }
@@ -110,6 +127,11 @@ public class MaterielActivity extends AppCompatActivity implements MyDialogInter
                 materiel.setQuantite(Integer.valueOf(etQuantite.getText().toString()));
             } catch (NumberFormatException e) {
                 materiel.setQuantite(1);
+            }
+            idPhoto.buildDrawingCache();
+            Bitmap imageBitmap = idPhoto.getDrawingCache();
+            if (imageBitmap != null) {
+                materiel.setPhoto(PictureUtils.getBitmapAsByteArray(imageBitmap));
             }
             materiel.save();
             Toast.makeText(getBaseContext(), getString(R.string.materiel_save), Toast.LENGTH_LONG).show();
@@ -148,6 +170,10 @@ public class MaterielActivity extends AppCompatActivity implements MyDialogInter
                     return true;
                 }
                 return false;
+
+                case R.id.action_pick_photo:
+                selectPhoto();
+                return true;
 
             case R.id.action_close_materiel:
                 Intent listActivity = new Intent(getApplicationContext(), MaterielsActivity.class);
@@ -224,6 +250,32 @@ public class MaterielActivity extends AppCompatActivity implements MyDialogInter
         list = new ArrayList<>();
         Collections.addAll(list, Marque.values());
         spMarque.setAdapter(new IDataSpinnerAdapter(this, list, R.layout.spinner));
+    }
+
+    private void selectPhoto() {
+        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+        photoPickerIntent.setType("image/*");
+        startActivityForResult(photoPickerIntent, REQUEST_PHOTO);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_PHOTO && resultCode == RESULT_OK) {
+            try {
+                final Uri imageUri = data.getData();
+                final InputStream imageStream = getContentResolver().openInputStream(imageUri);
+                Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                selectedImage = PictureUtils.rotateImageIfRequired(selectedImage, MaterielActivity.this, imageUri);
+                Drawable drawable = new BitmapDrawable(MaterielActivity.this.getResources(), selectedImage);
+                idPhoto.setImageDrawable(drawable);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                Toast.makeText(MaterielActivity.this, "Something went wrong", Toast.LENGTH_LONG).show();
+            } catch (IOException e) {
+                e.printStackTrace();
+                Toast.makeText(MaterielActivity.this, "Something went wrong", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 
 }

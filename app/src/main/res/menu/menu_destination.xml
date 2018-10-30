@@ -9,6 +9,12 @@
         app:icon="@drawable/smallsave"
         app:showAsAction="ifRoom" />
 
+    <item android:id="@+id/action_pick_photo"
+        android:title="@string/action_pick_photo"
+        app:icon="@drawable/plan_reseau"
+        app:showAsAction="ifRoom" />
+
+
     <item android:id="@+id/action_close_dest"
         android:title="@string/action_fermer"
         app:icon="@drawable/smallexit"

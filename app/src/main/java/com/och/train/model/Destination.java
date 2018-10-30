@@ -21,6 +21,9 @@ public class Destination extends Model {
     @Column(name = "Y")
     public int y;
 
+    @Column(name = "Photo")
+    private byte[] photo;
+
     public Destination() {
         super();
     }
@@ -60,5 +63,13 @@ public class Destination extends Model {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public byte[] getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(byte[] photo) {
+        this.photo = photo;
     }
 }
