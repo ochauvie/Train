@@ -35,19 +35,23 @@ public class InitData {
         try {
            Materiel materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
                     Categorie.LOCO, Propulsion.VAPEUR, "Petite locomotive vapeur");
-            materiel.setCompanie("Chemin de fer du Sud");
-            materiel.setReference("V001");
+            materiel.setCompanie("SNCF");
+            materiel.setReference("933602");
             materiel.setLongueur(5);
             materiel.setQuantite(1);
             materiel.save();
 
             materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
                     Categorie.MARCHANDISE, Propulsion.TOMBEREAU, "Tombereau bas");
+            materiel.setCompanie("SNCF");
+            materiel.setReference("933602");
             materiel.setLongueur(5);
             materiel.save();
 
             materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
                     Categorie.MARCHANDISE, Propulsion.TOMBEREAU, "Tombereau haut");
+            materiel.setCompanie("SNCF");
+            materiel.setReference("933602");
             materiel.setLongueur(5);
             materiel.save();
 
@@ -71,6 +75,14 @@ public class InitData {
                     Categorie.MARCHANDISE, Propulsion.CITERNE, "Citerne J.A.F.");
             materiel.setReference("67526");
             materiel.setCompanie("DB");
+            materiel.setLongueur(5);
+            materiel.setQuantite(1);
+            materiel.save();
+
+            materiel = new Materiel(Echelle.N, Epoque.III, Marque.BRAWA,
+                    Categorie.MARCHANDISE, Propulsion.CITERNE, "Citerne Marcel Rouanet");
+            materiel.setReference("5430 FB");
+            materiel.setCompanie("SNCF");
             materiel.setLongueur(5);
             materiel.setQuantite(1);
             materiel.save();
