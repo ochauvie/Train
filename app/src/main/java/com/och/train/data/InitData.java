@@ -79,7 +79,7 @@ public class InitData {
             materiel.setQuantite(1);
             materiel.save();
 
-            materiel = new Materiel(Echelle.N, Epoque.III, Marque.BRAWA,
+            materiel = new Materiel(Echelle.N, Epoque.III, Marque.FLEISCHMANN,
                     Categorie.MARCHANDISE, Propulsion.CITERNE, "Citerne Marcel Rouanet");
             materiel.setReference("5430 FB");
             materiel.setCompanie("SNCF");
