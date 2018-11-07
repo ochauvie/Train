@@ -89,6 +89,14 @@ public class DestinationEnRouteAdapter extends BaseAdapter {
             }
         });
 
+        tv_destination.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Integer position = (Integer) v.getTag();
+                sendListenerToPopupDestination(destList.get(position));
+            }
+        });
+
         return layoutItem;
     }
 
@@ -96,6 +104,14 @@ public class DestinationEnRouteAdapter extends BaseAdapter {
         if (destListeners != null) {
             for (int i = destListeners.size() - 1; i >= 0; i--) {
                 destListeners.get(i).onDestAtteinte(item, isChecked);
+            }
+        }
+    }
+
+    private void sendListenerToPopupDestination(DestinationMaterielRame item) {
+        if (destListeners != null) {
+            for (int i = destListeners.size() - 1; i >= 0; i--) {
+                destListeners.get(i).onPopupDestinaion(item);
             }
         }
     }

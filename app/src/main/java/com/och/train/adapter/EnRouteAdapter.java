@@ -19,6 +19,7 @@ import com.och.train.listener.DestinationEnRouteListener;
 import com.och.train.listener.EnRouteListener;
 import com.och.train.model.CompositionRame;
 import com.och.train.model.DestinationMaterielRame;
+import com.och.train.model.Materiel;
 import com.och.train.tools.Utils;
 
 import java.util.ArrayList;
@@ -117,12 +118,21 @@ public class EnRouteAdapter extends BaseAdapter implements DestinationEnRouteLis
         // On memorise la position  dans le composant textview
         layoutItem.setTag(position);
         cbEnRoute.setTag(position);
+        stDescription.setTag(position);
 
         cbEnRoute.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton v, boolean isChecked) {
                 Integer position = (Integer) v.getTag();
                 sendListenerToOnEnRoute(compositionRameList.get(position), v.isChecked());
+            }
+        });
+
+        stDescription.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Integer position = (Integer) v.getTag();
+                sendListenerToPopupMateriel(compositionRameList.get(position).getMateriel());
             }
         });
 
@@ -135,6 +145,12 @@ public class EnRouteAdapter extends BaseAdapter implements DestinationEnRouteLis
         }
     }
 
+    private void sendListenerToPopupMateriel(Materiel item) {
+        for(int i = listeners.size()-1; i >= 0; i--) {
+            listeners.get(i).onPopupMateriel(item);
+        }
+    }
+
     @Override
     public void onDestAtteinte(DestinationMaterielRame item, boolean isChecked) {
         for(int i = listeners.size()-1; i >= 0; i--) {
@@ -142,4 +158,11 @@ public class EnRouteAdapter extends BaseAdapter implements DestinationEnRouteLis
         }
     }
 
+
+    @Override
+    public void onPopupDestinaion(DestinationMaterielRame item) {
+        for(int i = listeners.size()-1; i >= 0; i--) {
+            listeners.get(i).onPopupDestinaion(item);
+        }
+    }
 }
