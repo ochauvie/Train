@@ -1,5 +1,6 @@
 package com.och.train.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -12,11 +13,15 @@ import android.support.constraint.ConstraintSet;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,17 +36,16 @@ import com.och.train.service.DestinationService;
 import com.och.train.tools.PictureUtils;
 import com.och.train.tools.Utils;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-import java.util.UUID;
 
 public class PlanActivity extends AppCompatActivity implements PlanListener {
 
     private static final int REQUEST_PLAN_SELECT = 1;
     private ConstraintLayout layout;
+    private PopupWindow popupWindow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +96,14 @@ public class PlanActivity extends AppCompatActivity implements PlanListener {
                 set.applyTo(layout);
 
                 reLayout.setOnTouchListener(new MyTouchListener());
+
+                imgDest.setTag(dest);
+                imgDest.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        onClickDestination(v);
+                    }
+                });
             }
         }
     }
@@ -161,6 +173,33 @@ public class PlanActivity extends AppCompatActivity implements PlanListener {
                 Toast.makeText(PlanActivity.this, "Something went wrong", Toast.LENGTH_LONG).show();
             }
         }
+    }
+
+    private void onClickDestination(View v) {
+        if (popupWindow!=null) {
+            popupWindow.dismiss();
+        }
+        Destination dest = (Destination) v.getTag();
+        LayoutInflater layoutInflater = (LayoutInflater) PlanActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View customView = layoutInflater.inflate(R.layout.popup_destination,null);
+
+        ImageButton buClose = customView.findViewById(R.id.buClose);
+        TextView txDestination = customView.findViewById(R.id.txDestination);
+        ImageView ivDestination = customView.findViewById(R.id.ivDestination);
+        txDestination.setText(dest.getDestination());
+        if (dest.getPhoto() != null) {
+            ivDestination.setImageBitmap(PictureUtils.getImage(dest.getPhoto()));
+        }
+
+        popupWindow = new PopupWindow(customView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
+
+        buClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+            }
+        });
     }
 
 }
