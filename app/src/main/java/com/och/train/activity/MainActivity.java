@@ -1,6 +1,8 @@
 package com.och.train.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,7 +22,9 @@ import com.och.train.model.Plan;
 import com.och.train.model.Rame;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  implements MyDialogInterface.DialogReturn {
+
+    private MyDialogInterface myDialogInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
         ActiveAndroid.initialize(config.create());
 
         setContentView(R.layout.activity_main);
+
+        myDialogInterface = new MyDialogInterface();
+        myDialogInterface.setListener(this);
 
         // Materiels
         Button but1 = findViewById(R.id.buttonMateriels);
@@ -81,9 +88,37 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onInitDb() {
-        InitData.deleteAll();
-        InitData.initMateriels();
-        InitData.initRames();
-        InitData.initDestinations();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setIcon(R.drawable.delete);
+        builder.setTitle("Initialisation de la base de données");
+        builder.setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                myDialogInterface.getListener().onDialogCompleted(true, "INIT_BD");
+                dialog.dismiss();
+            }
+        });
+
+        builder.setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                myDialogInterface.getListener().onDialogCompleted(false, "INIT_BD");
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
+    @Override
+    public void onDialogCompleted(boolean answer, String type) {
+        if ("INIT_BD".equals(type) && answer) {
+            InitData.deleteAll();
+            InitData.initMateriels();
+            InitData.initRames();
+            InitData.initDestinations();
+        }
     }
 }
